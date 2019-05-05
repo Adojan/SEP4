@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SEMESTER_PROJECT_ANDROID</string>
+    <string name="email">E-mail Address</string>
+    <string name="password">Password</string>
 </resources>
