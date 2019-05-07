@@ -28,7 +28,13 @@ main.d main.o: .././main.c \
  ../FreeRTOS/src/ATMEGA_FreeRTOS.h ../FreeRTOS/src/task.h \
  ../FreeRTOS/src/list.h ../FreeRTOS/src/semphr.h ../FreeRTOS/src/queue.h \
  ../Iot\ driver\ Library/mh_z19.h ../Iot\ driver\ Library/serial.h \
- ../Iot\ driver\ Library/hih8120.h
+ ../Iot\ driver\ Library/hih8120.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\assert.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
+ ../FreeRTOS/src/timers.h ../Iot\ driver\ Library/ihal.h \
+ ../Iot\ driver\ Library/lora_driver.h ../Iot\ driver\ Library/iled.h \
+ ../Iot\ driver\ Library/ihal.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h:
 
@@ -103,3 +109,19 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../Iot\ driver\ Library/serial.h:
 
 ../Iot\ driver\ Library/hih8120.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\assert.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h:
+
+../FreeRTOS/src/timers.h:
+
+../Iot\ driver\ Library/ihal.h:
+
+../Iot\ driver\ Library/lora_driver.h:
+
+../Iot\ driver\ Library/iled.h:
+
+../Iot\ driver\ Library/ihal.h:
