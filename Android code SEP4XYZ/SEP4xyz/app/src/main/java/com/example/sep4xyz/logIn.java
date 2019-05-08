@@ -79,9 +79,10 @@ public class logIn extends AppCompatActivity implements View.OnClickListener {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 // if authentication is completed successfully than it will move to the next page
                 if (task.isSuccessful()) {
-                    finish();
+
                     Intent Login = new Intent(logIn.this, MainSelectBlock.class);
                     startActivity(Login);
+                    finish();
                 } else {
                     Toast.makeText(logIn.this, "Invalid user name or password", Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
