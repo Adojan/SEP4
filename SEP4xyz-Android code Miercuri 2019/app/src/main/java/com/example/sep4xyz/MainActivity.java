@@ -23,20 +23,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void AdminLogin(View view){
-        if (view==loginAdministrator){
-            Intent adminLogin= new Intent(MainActivity.this,MainAdministratorLogin.class);
-            startActivity(adminLogin);
-            finish();
-        }
 
+            Intent adminLogin= new Intent(this,MainAdministratorLogin.class);
+            startActivity(adminLogin);
     }
     public void userLogin(View view){
-        if (view==loginUser){
-            Intent userLogin= new Intent(MainActivity.this,logIn.class);
-            startActivity(userLogin);
-            finish();
-        }
 
+            Intent userLogin= new Intent(this,logIn.class);
+            startActivity(userLogin);
     }
 
 

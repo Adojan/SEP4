@@ -35,10 +35,11 @@ public class logIn extends AppCompatActivity implements View.OnClickListener {
 
         firebaseAuth = FirebaseAuth.getInstance();
         // checks to see if the user is already logged in
-        if (firebaseAuth.getCurrentUser() != null) {
-            Intent Login = new Intent(logIn.this, SelectBlock.class);
-            startActivity(Login);
-        }
+//        if (firebaseAuth.getCurrentUser() != null) {
+//            Intent Login = new Intent(logIn.this, SelectBlock.class);
+//            startActivity(Login);
+//        }
+        //TO-DO
         progressDialog = new ProgressDialog(this);
         userName = findViewById(R.id.userName);
         userPassword = findViewById(R.id.userPassword);
