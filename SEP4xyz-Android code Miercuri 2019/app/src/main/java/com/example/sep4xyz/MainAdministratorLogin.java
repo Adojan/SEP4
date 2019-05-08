@@ -19,9 +19,9 @@ public class MainAdministratorLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_administrator_login);
-        userName=(EditText) findViewById(R.id.username);
-        password=(EditText) findViewById(R.id.password);
-        login=(Button) findViewById(R.id.login);
+        userName=(EditText) findViewById(R.id.userId);
+        password=(EditText) findViewById(R.id.passwordId);
+        login=(Button) findViewById(R.id.register);
 
 
 

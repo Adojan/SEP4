@@ -6,5 +6,8 @@
     <string name="register">Register</string>
     <string name="administrator_login">Administrator Login</string>
     <string name="login_user">User Login</string>
+    <string name="user_registration">User Registration</string>
+    <string name="passwor_reenter">Re-enter Password</string>
+    <string name="existing_account">Already have an account? Sign in!</string>
 </resources>
 

@@ -40,9 +40,9 @@ public class logIn extends AppCompatActivity implements View.OnClickListener {
 //        }
         //TO-DO
         progressDialog = new ProgressDialog(this);
-        userName = findViewById(R.id.username);
-        userPassword = findViewById(R.id.password);
-        loginBtn = findViewById(R.id.login);
+        userName = findViewById(R.id.userId);
+        userPassword = findViewById(R.id.passwordId);
+        loginBtn = findViewById(R.id.register);
         loginBtn.setOnClickListener(this);
 
     }

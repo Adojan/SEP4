@@ -27,6 +27,7 @@ public class MainCreateUsers extends AppCompatActivity implements View.OnClickLi
     private TextView signIn;
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
+    private EditText passwordReenter;
 
 
     @Override
@@ -44,12 +45,15 @@ public class MainCreateUsers extends AppCompatActivity implements View.OnClickLi
         signIn = findViewById(R.id.signIn);
         register.setOnClickListener(this);
         signIn.setOnClickListener(this);
+        passwordReenter=findViewById(R.id.passwordReenter);
     }
 
     // method that initializes the input fields as strings and uses a boolean approach to check if the fields are empty or not
     private void registerUser() {
         String email = userId.getText().toString().trim();
         String password = passwordId.getText().toString().trim();
+        String reenterPassword = passwordReenter.getText().toString().trim();
+
 
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(this, "Please enter a user name", Toast.LENGTH_SHORT).show();
@@ -61,29 +65,42 @@ public class MainCreateUsers extends AppCompatActivity implements View.OnClickLi
             //stops the function from executing further
             return;
         }
+        if (TextUtils.isEmpty(reenterPassword)) {
+            Toast.makeText(this, "Please re-enter your password", Toast.LENGTH_SHORT).show();
+            //stops the function from executing further
+            return;
+        }
 
-        progressDialog.setMessage("Verifying credentials...");
-        progressDialog.show();
+        if (password.equals(reenterPassword)) {
+
+            progressDialog.setMessage("Verifying credentials...");
+            progressDialog.show();
 
 
-        // this creates a user account with two parameters of email and password on the fire base
-        firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @SuppressLint("ByteOrderMark")
-            @Override
-            // this method checks to see if the registration has been successful or not
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    Toast.makeText(MainCreateUsers.this, "Account has been registered", Toast.LENGTH_SHORT).show();
-                    Intent cretaeUsers = new Intent(MainCreateUsers.this, MainCreateUsers.class);
-                    startActivity(cretaeUsers);
+            // this creates a user account with two parameters of email and password on the fire base
+            firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                @SuppressLint("ByteOrderMark")
+                @Override
+                // this method checks to see if the registration has been successful or not
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(MainCreateUsers.this, "Account has been registered", Toast.LENGTH_SHORT).show();
+                        Intent cretaeUsers = new Intent(MainCreateUsers.this, MainCreateUsers.class);
+                        startActivity(cretaeUsers);
 
-                } else {
-                    Toast.makeText(MainCreateUsers.this, "Unable to create user account", Toast.LENGTH_SHORT).show();
-                    progressDialog.dismiss();
+                    } else {
+                        Toast.makeText(MainCreateUsers.this, "Unable to create user account", Toast.LENGTH_SHORT).show();
+                        progressDialog.dismiss();
+                    }
                 }
-            }
-        });
+            });
+        }else {
+            Toast.makeText(this, "Passwords don't match", Toast.LENGTH_SHORT).show();
+            //stops the function from executing further
+            return;
+        }
     }
+
 
 
     // creates the on click listener functionality for the register button and the signIn text

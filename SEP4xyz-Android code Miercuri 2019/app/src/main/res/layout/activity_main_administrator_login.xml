@@ -65,7 +65,7 @@
                 app:srcCompat="@drawable/person" />
 
             <EditText
-                android:id="@+id/username"
+                android:id="@+id/userId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -87,7 +87,7 @@
                 app:srcCompat="@drawable/password" />
 
             <EditText
-                android:id="@+id/password"
+                android:id="@+id/passwordId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -142,7 +142,7 @@
         app:srcCompat="@drawable/hot_water" />
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
