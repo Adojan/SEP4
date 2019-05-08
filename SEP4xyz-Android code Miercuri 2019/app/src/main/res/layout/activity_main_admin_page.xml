@@ -120,7 +120,12 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:srcCompat="@drawable/floatface"
-        android:onClick="createUser"/>
+<<<<<<< HEAD
+  
+=======
+        android:onClick="floatCreateUser"
+        />
+>>>>>>> 9b42393423a42a5d6f8fb5e1298f4e962ea245c1
 
 
 </android.support.constraint.ConstraintLayout>

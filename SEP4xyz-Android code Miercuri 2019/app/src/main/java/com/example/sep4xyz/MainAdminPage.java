@@ -17,21 +17,28 @@ public class MainAdminPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_admin_page);
-        createUser=(Button) findViewById(R.id.createUser);
-        viewData= (Button) findViewById(R.id.viewData);
+        createUser = (Button) findViewById(R.id.createUser);
+        viewData = (Button) findViewById(R.id.viewData);
 
 
     }
 
-
-    public void createUser(View view){
-        Intent createUser= new Intent(MainAdminPage.this,MainCreateUsers.class);
+    // create user  intent
+    public void createUser(View view) {
+        Intent createUser = new Intent(MainAdminPage.this, MainCreateUsers.class);
         startActivity(createUser);
     }
 
-    public void viewData(View view){
-        Intent viewData= new Intent(MainAdminPage.this,SelectBlock.class);
+    // view data intent
+    public void viewData(View view) {
+        Intent viewData = new Intent(MainAdminPage.this, SelectBlock.class);
         startActivity(viewData);
+    }
+
+    // floating button create user intent
+    public void floatCreateUser(View view) {
+        Intent createUser = new Intent(MainAdminPage.this, MainCreateUsers.class);
+        startActivity(createUser);
     }
 
 }
