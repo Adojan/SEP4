@@ -71,14 +71,14 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/btn_background"
-        android:onClick="createUser"
         android:text="Create User"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.575" />
+        app:layout_constraintVertical_bias="0.575"
+        android:onClick="createUser"/>
 
     <Button
         android:id="@+id/viewData"
@@ -119,7 +119,8 @@
         app:backgroundTint="#FFBEA5"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:srcCompat="@drawable/floatface" />
+        app:srcCompat="@drawable/floatface"
+        android:onClick="createUser"/>
 
 
 </android.support.constraint.ConstraintLayout>

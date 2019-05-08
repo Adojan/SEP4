@@ -1,6 +1,7 @@
 package com.example.sep4xyz;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ public class MainAdminPage extends AppCompatActivity {
 
     Button createUser;
     Button viewData;
+    FloatingActionButton addUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +19,7 @@ public class MainAdminPage extends AppCompatActivity {
         setContentView(R.layout.activity_main_admin_page);
         createUser=(Button) findViewById(R.id.createUser);
         viewData= (Button) findViewById(R.id.viewData);
+        addUser=findViewById(R.id.floatingActionButton2);
 
     }
 
