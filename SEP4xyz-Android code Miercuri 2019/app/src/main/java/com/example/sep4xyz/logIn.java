@@ -2,7 +2,6 @@ package com.example.sep4xyz;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -41,9 +40,9 @@ public class logIn extends AppCompatActivity implements View.OnClickListener {
 //        }
         //TO-DO
         progressDialog = new ProgressDialog(this);
-        userName = findViewById(R.id.userName);
-        userPassword = findViewById(R.id.userPassword);
-        loginBtn = findViewById(R.id.loginBtn);
+        userName = findViewById(R.id.username);
+        userPassword = findViewById(R.id.password);
+        loginBtn = findViewById(R.id.login);
         loginBtn.setOnClickListener(this);
 
     }
