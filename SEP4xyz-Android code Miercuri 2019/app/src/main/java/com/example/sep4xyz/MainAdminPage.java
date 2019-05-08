@@ -11,7 +11,7 @@ public class MainAdminPage extends AppCompatActivity {
 
     Button createUser;
     Button viewData;
-    FloatingActionButton addUser;
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +19,7 @@ public class MainAdminPage extends AppCompatActivity {
         setContentView(R.layout.activity_main_admin_page);
         createUser=(Button) findViewById(R.id.createUser);
         viewData= (Button) findViewById(R.id.viewData);
-        addUser=findViewById(R.id.floatingActionButton2);
+
 
     }
 
