@@ -70,6 +70,11 @@ public class MainCreateUsers extends AppCompatActivity implements View.OnClickLi
             //stops the function from executing further
             return;
         }
+        if (password.length()<6) {
+            Toast.makeText(this, "The password must be at least 6 characters long", Toast.LENGTH_SHORT).show();
+            //stops the function from executing further
+            return;
+        }
 
         if (password.equals(reenterPassword)) {
 
@@ -85,7 +90,7 @@ public class MainCreateUsers extends AppCompatActivity implements View.OnClickLi
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
                         Toast.makeText(MainCreateUsers.this, "Account has been registered", Toast.LENGTH_SHORT).show();
-                        Intent cretaeUsers = new Intent(MainCreateUsers.this, MainCreateUsers.class);
+                        Intent cretaeUsers = new Intent(MainCreateUsers.this, MainAdminPage.class);
                         startActivity(cretaeUsers);
 
                     } else {
