@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SelectBlock">
+
+
+    <LinearLayout
+        android:layout_weight="3.3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="4dp">
+
+        <TextView
+            android:id="@+id/BlockA"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="BLOCK A"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="25dp"
+            android:background="@drawable/blocks"
+            android:layout_margin="4dp"
+            android:layout_weight="1" />
+
+
+        <TextView
+            android:id="@+id/BlockB"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="BLOCK B"
+            android:textAlignment="center"
+            android:background="@drawable/blocks"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="25dp"
+            android:layout_weight="1"
+            android:layout_margin="4dp" />
+
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="3.3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="4dp"
+            android:orientation="horizontal"
+            >
+
+
+            <TextView
+                android:id="@+id/BlockC"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="BLOCK C"
+                android:textAlignment="center"
+             android:background="@drawable/blocks"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="25dp"
+                android:layout_weight="1"
+                android:layout_margin="4dp" />
+
+
+            <TextView
+                android:id="@+id/BlockD"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="BLOCK D"
+                android:textAlignment="center"
+               android:background="@drawable/blocks"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="25dp"
+                android:layout_weight="1"
+                android:layout_margin="4dp" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_weight="3.3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="4dp"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:id="@+id/BlockE"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="BLOCK E"
+            android:textAlignment="center"
+            android:background="@drawable/blocks"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="25dp"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            />
+
+
+        <TextView
+            android:id="@+id/selectBlockF"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="BLOCK F"
+            android:textAlignment="center"
+            android:background="@drawable/available"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="25dp"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            android:onClick="selectF"
+            />
+
+
+    </LinearLayout>
+</LinearLayout>
