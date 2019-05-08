@@ -15,7 +15,6 @@
         <activity android:name=".SelectFloor" />
         <activity android:name=".SelectBlock" />
         <activity android:name=".logIn" />
-        <activity android:name=".MainViewData" />
         <activity android:name=".MainCreateUsers" />
         <activity android:name=".MainAdminPage" />
         <activity android:name=".MainAdministratorLogin" />
