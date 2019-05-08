@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">SEP4xyz</string>
+    <string name="email">E-mail Address</string>
+    <string name="password">Password</string>
+    <string name="log_in">Log In</string>
+    <string name="register">Register</string>
+    <string name="administrator_login">Administrator Log In</string>
+    <string name="login_user">User Log In</string>
 </resources>
+
