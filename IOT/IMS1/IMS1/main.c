@@ -8,7 +8,7 @@
 #include <ATMEGA_FreeRTOS.h>
 #include <semphr.h>
 #include <mh_z19.h> // co2
-#include <hih8120.h>//temp-humid
+#include <hih8120.h>//temp-humid`
 #include <string.h>
 #include <assert.h>
 #include <timers.h>
@@ -42,14 +42,14 @@ TaskHandle_t x4Handle = NULL;
 TaskHandle_t x5Handle = NULL;
 TaskHandle_t x6Handle = NULL;
 //int var = 0;
-uint16_t ppm= 100;
+int* ppm;
 mh_z19_return_code_t rc;
 float temperature;
 float humidity;
 		
  uint16_t hum  ; // test humidity
  uint16_t temp ; // test temp
- uint16_t co2_ppm ; // test CO2
+ uint16_t co2_ppm = &ppm; // test CO2
  
 
 
@@ -57,7 +57,8 @@ float humidity;
 /*A callback function to use the output of the CO2 sensor*/
 void my_co2_call_back(uint16_t ppm)
 {	
-	printf("CO2 is %d \n ",(int)ppm);
+	co2_ppm=ppm;
+	printf("CO2 is %d \n ",co2_ppm);
 }
 
 /*initialize temperature and humidity driver*/
@@ -111,7 +112,8 @@ void get_CO2_task(void*pvParameters)
 			// Something went wrong
 		}
 	else{
-		mh_z19_get_co2_ppm(&co2_ppm);
+		mh_z19_get_co2_ppm(ppm);
+		
 		}
 	}vTaskDelete(NULL);
 }
@@ -126,10 +128,15 @@ void get_T_and_H_task(void*pvParameters)
 	while(1)
 	{	xSemaphoreTake(xSemaphore1,1000);
 		xTimerStart(xTimer1,100);
+		vTaskDelay(pdMS_TO_TICKS(50UL));
+		
 		if(HIH8120_OK!=hih8120Wakeup())
 		{
 	//some errors check 
+		
+	
 		}	
+		vTaskDelay(pdMS_TO_TICKS(50UL));
 		
 		/*TODO: change delay to timer/interrupts */
 		if ( HIH8120_OK !=  hih8120Meassure() )
@@ -137,7 +144,11 @@ void get_T_and_H_task(void*pvParameters)
 			// Something went wrong
 			// Investigate the return code further
 			printf("ERROR\n");
+			
+			
 		}
+		vTaskDelay(pdMS_TO_TICKS(50UL));
+		
 		temperature= hih8120GetTemperature();
 		
 		humidity = hih8120GetHumidity();
@@ -347,10 +358,13 @@ static void _lora_setup(void)
 		}
 	}
 }
+int send_status =1;
 
 /*-----------------------------------------------------------*/
 void lora_handler_task( void *pvParameters )
 {
+	xSemaphoreTake(xSemaphore1,10000);
+		xTimerStart(xTimer1,10000*send_status);
 	static e_LoRa_return_code_t rc;
 	printf("test : lora handler task -->setup<--started\n");
 	_delay_ms(15);
@@ -374,14 +388,16 @@ void lora_handler_task( void *pvParameters )
 	_uplink_payload.port_no = 2;
 
 
-	for(;;)
+	while(send_status)
 	{
 		vTaskDelay(pdMS_TO_TICKS(15000UL));
 
 		// Some dummy payload
-		//uint16_t hum = 12345; // Dummy humidity
-		//int16_t temp = 675; // Dummy temp
-		//uint16_t co2_ppm = 1050; // Dummy CO2
+		 hum = round(humidity*100); // Dummy humidity
+		 temp = round(temperature*100); // Dummy temp
+		 //co2_ppm = &ppm; // Dummy CO2
+
+
 
 		_uplink_payload.bytes[0] = hum >> 8;
 		_uplink_payload.bytes[1] = hum & 0xFF;
@@ -392,6 +408,8 @@ void lora_handler_task( void *pvParameters )
 
 		led_short_puls(led_ST4);  // OPTIONAL
 		printf("Upload Message >%s<\n", lora_driver_map_return_code_to_text(lora_driver_sent_upload_message(false, &_uplink_payload)));
+		_delay_ms(3000);
+		
 	}
 }
 
@@ -414,19 +432,22 @@ int main(void)
 {	
 	xTimer1=xTimerCreate("Timer 1 ", (1000/portTICK_PERIOD_MS),pdTRUE,(void*)0,vTimerCallback1);
 	xSemaphore1=xSemaphoreCreateMutex();
-	//xTaskCreate(get_CO2_task, "Measure CO2 ", configMINIMAL_STACK_SIZE, NULL, task1_TASK_PRIORITY, &x1Handle);
+	stdioCreate(0);
+	sei();
+	init_T_H_sens();
+	init_CO2_sens();
+	xTaskCreate(get_CO2_task, "Measure CO2 ", configMINIMAL_STACK_SIZE, NULL, task1_TASK_PRIORITY, &x1Handle);
 	xTaskCreate(get_T_and_H_task, "Measure Temp and Humidity", configMINIMAL_STACK_SIZE, NULL, task2_TASK_PRIORITY, &x2Handle);
 	//xTaskCreate(get_Light_Intensity_task, "Measure light intensity", configMINIMAL_STACK_SIZE,NULL,task3_TASK_PRIORITY,&x3Handle);
 	//xTaskCreate(prepare_telegram_task, "Prepare telegram", configMINIMAL_STACK_SIZE,NULL,task3_TASK_PRIORITY,&x4Handle);
 	//xTaskCreate(send_telegram_task, "Send telegram", configMINIMAL_STACK_SIZE,NULL,task3_TASK_PRIORITY,&x5Handle);
 	//xTaskCreate(LoRa_Task, "initLORA", configMINIMAL_STACK_SIZE,NULL,task6_TASK_PRIORITY,&x6Handle);
-	stdioCreate(0);
-	sei();
-	//hal_create(LED_TASK_PRIORITY);
-	//lora_driver_create(ser_USART1);
-	//lora_handler_create(3);
-	//init_CO2_sens();
-	init_T_H_sens();
+	
+	hal_create(LED_TASK_PRIORITY);
+	lora_driver_create(ser_USART1);
+	lora_handler_create(3);
+	
+	
 	//init_Lux_sens();
 	//init_LoRa_module();
 	
