@@ -7,41 +7,38 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainAdminPage extends AppCompatActivity implements View.OnClickListener {
+public class MainAdminPage extends AppCompatActivity {
 
-    private Button createUser;
-    private Button viewData;
-
+    Button createUser;
+    Button viewData;
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_admin_page);
-        createUser = findViewById(R.id.createUser);
-        viewData = findViewById(R.id.viewData);
-        createUser.setOnClickListener(this);
-        viewData.setOnClickListener(this);
+        createUser = (Button) findViewById(R.id.createUser);
+        viewData = (Button) findViewById(R.id.viewData);
+
 
     }
 
-    @Override
-    public void onClick(View view) {
-        if (view == createUser) {
-            Intent createUser = new Intent(MainAdminPage.this, MainCreateUsers.class);
-            startActivity(createUser);
-        }
-        if (view == viewData) {
-            Intent viewData = new Intent(MainAdminPage.this, SelectBlock.class);
-            startActivity(viewData);
-        }
+    // create user  intent
+    public void createUser(View view) {
+        Intent createUser = new Intent(MainAdminPage.this, MainCreateUsers.class);
+        startActivity(createUser);
+    }
+
+    // view data intent
+    public void viewData(View view) {
+        Intent viewData = new Intent(MainAdminPage.this, SelectBlock.class);
+        startActivity(viewData);
     }
 
     // floating button create user intent
     public void floatCreateUser(View view) {
         Intent createUser = new Intent(MainAdminPage.this, MainCreateUsers.class);
         startActivity(createUser);
-
-
     }
 
 }
