@@ -9,5 +9,9 @@
     <string name="user_registration">User Registration</string>
     <string name="passwor_reenter">Re-enter Password</string>
     <string name="existing_account">Already have an account? Sign in!</string>
+    <string name="first_floor">First floor</string>
+    <string name="second_floor">Second floor</string>
+    <string name="third_floor">Third floor</string>
+
 </resources>
 

@@ -8,5 +8,7 @@
     <color name="paleYellow">#FFDC84</color>
     <color name="palerYellow">#FFE5A5</color>
     <color name="startLightBlue">#A1DDF4</color>
+    <color name="lightRed">#F44336</color>
+    <color name="green">#8BC34A</color>
 
 </resources>

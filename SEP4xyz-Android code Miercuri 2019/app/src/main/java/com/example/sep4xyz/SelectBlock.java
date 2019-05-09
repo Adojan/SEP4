@@ -14,13 +14,13 @@ public class SelectBlock extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_block);
-        blockF= findViewById(R.id.selectBlockF);
+  blockF= findViewById(R.id.f3);
 
     }
 
 
     public void selectF(View view) {
-         Intent selectBlock= new Intent(SelectBlock.this,SelectFloor.class);
+         Intent selectBlock= new Intent(SelectBlock.this,SelectRoom.class);
          startActivity(selectBlock);
 
     }
