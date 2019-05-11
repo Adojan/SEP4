@@ -6,17 +6,17 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 public class Main {
-    public static CharSequence data = "test¬";
-    public static WebSocket webSocket;
-    public static boolean last = true;
+
 
     public static void main(String[] args) {
 
-        WebSocketClient listner = new WebSocketClient("wss://iotnet.teracom.dk/app?token=vnoRjwAAABFpb3RuZXQudGVyYWNvbS5ka79QaSF5zzp-QuFIXpC6XZQ=");
-        while (true) {
+        testinter testinter = new test();
+        System.out.println(testinter.get());
 
-        }
 
+//        WebSocketClient listner = new WebSocketClient();
+//        while (true) ;
+//
 
 ////        WebSocketClient webClient = new WebSocketClient();
 //        CharSequence payload= "{" +
