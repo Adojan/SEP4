@@ -17,7 +17,7 @@ public class SelectRoom extends AppCompatActivity {
         F307=findViewById(R.id.F307);
     }
     public void openroom (View view){
-        Intent openRoom= new Intent(SelectRoom.this,ViewData.class);
+        Intent openRoom= new Intent(SelectRoom.this, ViewMeasurements.class);
         startActivity(openRoom);
     }
 }
