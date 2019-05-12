@@ -7,11 +7,13 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 public class WebSocketClient implements WebSocket.Listener {
+    private String beforeJson;
+    private String token = "wss://iotnet.teracom.dk/app?token=vnoRjwAAABFpb3RuZXQudGVyYWNvbS5ka79QaSF5zzp-QuFIXpC6XZQ=";
 
-
-    public WebSocketClient(String token) {
+    public WebSocketClient() {
         HttpClient httpClient = HttpClient.newHttpClient();
-        CompletableFuture<WebSocket> ws = httpClient.newWebSocketBuilder().buildAsync(URI.create(token), this);
+        CompletableFuture<WebSocket> ws = httpClient.newWebSocketBuilder()
+                .buildAsync(URI.create(token), this);
     }
 
     //onOpen()
@@ -28,7 +30,6 @@ public class WebSocketClient implements WebSocket.Listener {
         webSocket.abort();
     }
 
-    ;
 
     //onClose()
     public CompletionStage<?> onClose(WebSocket webSocket, int statusCode, String reason) {
@@ -36,7 +37,6 @@ public class WebSocketClient implements WebSocket.Listener {
         System.out.println("Status:" + statusCode + " Reason: " + reason);
         return new CompletableFuture().completedFuture("onClose() completed.").thenAccept(System.out::println);
     }
-
 
 
     //onPing()
@@ -58,8 +58,14 @@ public class WebSocketClient implements WebSocket.Listener {
 
     //onText()
     public CompletionStage<?> onText​(WebSocket webSocket, CharSequence data, boolean last) {
-        System.out.println(data);
+        beforeJson = data.toString();
+        System.out.println(beforeJson);
         webSocket.request(1);
         return new CompletableFuture().completedFuture("onText() completed.").thenAccept(System.out::println);
     }
+
+    public String getBeforeJson() {
+        return beforeJson;
+    }
+
 }
