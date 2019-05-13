@@ -11,11 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RoomsRepository {
-
-
+    private String[] blockId={"A","B","C","D","E","F","G"};
     private String[] floorNr={"0","1","2","3"};
     private String[] roomNr={"01","02","03","04","05","06","07"};
-    ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.id.blockIdAll,)
+
+
+
 
     int i,j,k;
 
@@ -61,5 +62,6 @@ public class RoomsRepository {
     {
         return rooms.size();
     }
+
 
 }

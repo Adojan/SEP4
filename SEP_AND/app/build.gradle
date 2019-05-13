@@ -42,6 +42,7 @@ dependencies {
     // Retrofit gson converter
     implementation "com.squareup.retrofit2:converter-gson:2.4.0"
     implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
 
 }
 apply plugin: 'com.google.gms.google-services'
