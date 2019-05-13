@@ -1,0 +1,65 @@
+package com.example.SEP_XYZ.repositories;
+
+import android.arch.lifecycle.MutableLiveData;
+import android.content.res.Resources;
+import android.widget.ArrayAdapter;
+
+import com.example.SEP_XYZ.R;
+import com.example.SEP_XYZ.models.Room;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class RoomsRepository {
+
+
+    private String[] floorNr={"0","1","2","3"};
+    private String[] roomNr={"01","02","03","04","05","06","07"};
+    ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.id.blockIdAll,)
+
+    int i,j,k;
+
+    private ArrayList<Room> rooms=new ArrayList<>();
+
+    private static RoomsRepository instance;
+
+    public static RoomsRepository getInstance(){
+        if(instance==null)
+            instance=new RoomsRepository();
+        return instance;
+
+    }
+//Pretend to get data from a webservice
+    public MutableLiveData<List<Room>> getRooms()
+    {
+        setRooms();
+        MutableLiveData<List<Room>> mtbRooms = new MutableLiveData<>();
+        mtbRooms.setValue(rooms);
+        return mtbRooms;
+    }
+
+
+
+    public void setRooms()
+    {
+        for( i=0;i<blockId.length;i++)
+        {
+            for ( k=0;k<floorNr.length;k++)
+            {
+                for(j=0;j<roomNr.length;j++)
+                {
+                    rooms.add(new Room(blockId[i],floorNr[k],roomNr[j]));
+                }
+            }
+        }
+    }
+    public ArrayList<Room> getRoomsArayList()
+    {
+        return rooms;
+    }
+    public int size()
+    {
+        return rooms.size();
+    }
+
+}
