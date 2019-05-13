@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ForProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AllCO2Facts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="RoomId" Type="int" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="CO2Percentage" Type="decimal" Precision="15" Scale="0" />
+    <Property Name="Time" Type="time" Precision="7" />
+    <Property Name="Date" Type="date" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ForProject.dbo.AllHumidityFacts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllHumidityFacts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="RoomId" Type="int" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="HumidityPercentage" Type="decimal" Precision="15" Scale="0" />
+    <Property Name="Time" Type="time" Precision="7" />
+    <Property Name="Date" Type="date" />
+  </EntityType>
+  <EntityType Name="AllTemperatureFacts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="RoomId" Type="int" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Temperature" Type="decimal" Precision="15" Scale="0" />
+    <Property Name="Time" Type="time" Precision="7" />
+    <Property Name="Date" Type="date" />
+  </EntityType>
+  <EntityType Name="Rooms">
+    <Key>
+      <PropertyRef Name="RoomId" />
+    </Key>
+    <Property Name="RoomId" Type="int" Nullable="false" />
+    <Property Name="Block" Type="nchar" MaxLength="50" />
+    <Property Name="Building" Type="nchar" MaxLength="50" />
+    <Property Name="Floor" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ForProject.dbo.STAGE.AllCO2Facts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="STAGE_AllCO2Facts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="RoomId" Type="int" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="CO2Percentage" Type="decimal" Precision="15" Scale="0" />
+    <Property Name="Time" Type="time" Precision="7" />
+    <Property Name="Date" Type="date" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ForProject.dbo.STAGE.AllHumidityFacts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="STAGE_AllHumidityFacts">
+    <Key>
+      <PropertyRef Name="ID2" />
+    </Key>
+    <Property Name="RoomId" Type="nchar" MaxLength="10" />
+    <Property Name="ID2" Type="int" Nullable="false" />
+    <Property Name="HumidityPercentage" Type="decimal" Precision="15" Scale="0" />
+    <Property Name="Time" Type="time" Precision="7" />
+    <Property Name="Date" Type="date" />
+    <Property Name="AverageHumidityPerMonth" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="AverageHumidityPerYear" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="STAGE_AllTemperatureFacts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="RoomId" Type="int" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Temperature" Type="decimal" Precision="15" Scale="0" />
+    <Property Name="Time" Type="time" Precision="7" />
+    <Property Name="Date" Type="date" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="nchar" MaxLength="50" />
+    <Property Name="LastName" Type="nchar" MaxLength="50" />
+    <Property Name="DOB" Type="datetime" />
+    <Property Name="Phone" Type="int" />
+    <Property Name="Email" Type="nchar" MaxLength="50" />
+    <Property Name="Password" Type="nchar" MaxLength="50" />
+    <Property Name="Major" Type="nchar" MaxLength="100" />
+    <Property Name="Type" Type="varchar" MaxLength="50" />
+    <Property Name="Street" Type="nchar" MaxLength="100" />
+    <Property Name="StreetNr" Type="int" />
+    <Property Name="City" Type="nchar" MaxLength="50" />
+    <Property Name="PostalCode" Type="int" />
+    <Property Name="Country" Type="nchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="ForProjectModelStoreContainer">
+    <EntitySet Name="AllCO2Facts" EntityType="Self.AllCO2Facts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AllTemperatureFacts" EntityType="Self.AllTemperatureFacts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rooms" EntityType="Self.Rooms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="STAGE_AllTemperatureFacts" EntityType="Self.STAGE_AllTemperatureFacts" Schema="dbo" Table="STAGE.AllTemperatureFacts" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AllHumidityFacts" EntityType="Self.AllHumidityFacts" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllHumidityFacts].[RoomId] AS [RoomId], 
+    [AllHumidityFacts].[ID] AS [ID], 
+    [AllHumidityFacts].[HumidityPercentage] AS [HumidityPercentage], 
+    [AllHumidityFacts].[Time] AS [Time], 
+    [AllHumidityFacts].[Date] AS [Date]
+    FROM [dbo].[AllHumidityFacts] AS [AllHumidityFacts]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="STAGE_AllCO2Facts" EntityType="Self.STAGE_AllCO2Facts" store:Type="Tables" store:Schema="dbo" store:Name="STAGE.AllCO2Facts">
+      <DefiningQuery>SELECT 
+    [STAGE_AllCO2Facts].[RoomId] AS [RoomId], 
+    [STAGE_AllCO2Facts].[ID] AS [ID], 
+    [STAGE_AllCO2Facts].[CO2Percentage] AS [CO2Percentage], 
+    [STAGE_AllCO2Facts].[Time] AS [Time], 
+    [STAGE_AllCO2Facts].[Date] AS [Date]
+    FROM [dbo].[STAGE.AllCO2Facts] AS [STAGE_AllCO2Facts]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="STAGE_AllHumidityFacts" EntityType="Self.STAGE_AllHumidityFacts" store:Type="Tables" store:Schema="dbo" store:Name="STAGE.AllHumidityFacts">
+      <DefiningQuery>SELECT 
+    [STAGE_AllHumidityFacts].[RoomId] AS [RoomId], 
+    [STAGE_AllHumidityFacts].[ID2] AS [ID2], 
+    [STAGE_AllHumidityFacts].[HumidityPercentage] AS [HumidityPercentage], 
+    [STAGE_AllHumidityFacts].[Time] AS [Time], 
+    [STAGE_AllHumidityFacts].[Date] AS [Date], 
+    [STAGE_AllHumidityFacts].[AverageHumidityPerMonth] AS [AverageHumidityPerMonth], 
+    [STAGE_AllHumidityFacts].[AverageHumidityPerYear] AS [AverageHumidityPerYear]
+    FROM [dbo].[STAGE.AllHumidityFacts] AS [STAGE_AllHumidityFacts]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

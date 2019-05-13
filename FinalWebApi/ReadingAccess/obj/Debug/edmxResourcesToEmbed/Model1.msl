@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ForProjectModelStoreContainer" CdmEntityContainer="ForProjectEntities1">
+    <EntitySetMapping Name="AllCO2Facts">
+      <EntityTypeMapping TypeName="ForProjectModel.AllCO2Facts">
+        <MappingFragment StoreEntitySet="AllCO2Facts">
+          <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CO2Percentage" ColumnName="CO2Percentage" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllTemperatureFacts">
+      <EntityTypeMapping TypeName="ForProjectModel.AllTemperatureFact">
+        <MappingFragment StoreEntitySet="AllTemperatureFacts">
+          <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rooms">
+      <EntityTypeMapping TypeName="ForProjectModel.Room">
+        <MappingFragment StoreEntitySet="Rooms">
+          <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+          <ScalarProperty Name="Block" ColumnName="Block" />
+          <ScalarProperty Name="Building" ColumnName="Building" />
+          <ScalarProperty Name="Floor" ColumnName="Floor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STAGE_AllTemperatureFacts">
+      <EntityTypeMapping TypeName="ForProjectModel.STAGE_AllTemperatureFacts">
+        <MappingFragment StoreEntitySet="STAGE_AllTemperatureFacts">
+          <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ForProjectModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Major" ColumnName="Major" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Street" ColumnName="Street" />
+          <ScalarProperty Name="StreetNr" ColumnName="StreetNr" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllHumidityFacts">
+      <EntityTypeMapping TypeName="ForProjectModel.AllHumidityFact">
+        <MappingFragment StoreEntitySet="AllHumidityFacts">
+          <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HumidityPercentage" ColumnName="HumidityPercentage" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STAGE_AllCO2Facts">
+      <EntityTypeMapping TypeName="ForProjectModel.STAGE_AllCO2Facts">
+        <MappingFragment StoreEntitySet="STAGE_AllCO2Facts">
+          <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CO2Percentage" ColumnName="CO2Percentage" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STAGE_AllHumidityFacts">
+      <EntityTypeMapping TypeName="ForProjectModel.STAGE_AllHumidityFacts">
+        <MappingFragment StoreEntitySet="STAGE_AllHumidityFacts">
+          <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+          <ScalarProperty Name="ID2" ColumnName="ID2" />
+          <ScalarProperty Name="HumidityPercentage" ColumnName="HumidityPercentage" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="AverageHumidityPerMonth" ColumnName="AverageHumidityPerMonth" />
+          <ScalarProperty Name="AverageHumidityPerYear" ColumnName="AverageHumidityPerYear" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

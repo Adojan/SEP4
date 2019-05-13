@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ForProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AllCO2Facts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="RoomId" Type="Int32" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="CO2Percentage" Type="Decimal" Precision="15" Scale="0" />
+    <Property Name="Time" Type="Time" Precision="7" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="AllTemperatureFact">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="RoomId" Type="Int32" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Temperature" Type="Decimal" Precision="15" Scale="0" />
+    <Property Name="Time" Type="Time" Precision="7" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="RoomId" />
+    </Key>
+    <Property Name="RoomId" Type="Int32" Nullable="false" />
+    <Property Name="Block" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Building" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Floor" Type="Int32" />
+  </EntityType>
+  <EntityType Name="STAGE_AllTemperatureFacts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="RoomId" Type="Int32" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Temperature" Type="Decimal" Precision="15" Scale="0" />
+    <Property Name="Time" Type="Time" Precision="7" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="DOB" Type="DateTime" Precision="3" />
+    <Property Name="Phone" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Major" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Street" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="StreetNr" Type="Int32" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="PostalCode" Type="Int32" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AllHumidityFact">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="RoomId" Type="Int32" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="HumidityPercentage" Type="Decimal" Precision="15" Scale="0" />
+    <Property Name="Time" Type="Time" Precision="7" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="STAGE_AllCO2Facts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="RoomId" Type="Int32" />
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="CO2Percentage" Type="Decimal" Precision="15" Scale="0" />
+    <Property Name="Time" Type="Time" Precision="7" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="STAGE_AllHumidityFacts">
+    <Key>
+      <PropertyRef Name="ID2" />
+    </Key>
+    <Property Name="RoomId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ID2" Type="Int32" Nullable="false" />
+    <Property Name="HumidityPercentage" Type="Decimal" Precision="15" Scale="0" />
+    <Property Name="Time" Type="Time" Precision="7" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="AverageHumidityPerMonth" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="AverageHumidityPerYear" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityContainer Name="ForProjectEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AllCO2Facts" EntityType="Self.AllCO2Facts" />
+    <EntitySet Name="AllTemperatureFacts" EntityType="Self.AllTemperatureFact" />
+    <EntitySet Name="Rooms" EntityType="Self.Room" />
+    <EntitySet Name="STAGE_AllTemperatureFacts" EntityType="Self.STAGE_AllTemperatureFacts" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="AllHumidityFacts" EntityType="Self.AllHumidityFact" />
+    <EntitySet Name="STAGE_AllCO2Facts" EntityType="Self.STAGE_AllCO2Facts" />
+    <EntitySet Name="STAGE_AllHumidityFacts" EntityType="Self.STAGE_AllHumidityFacts" />
+  </EntityContainer>
+</Schema>
