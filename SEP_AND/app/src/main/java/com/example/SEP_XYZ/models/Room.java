@@ -6,6 +6,9 @@ public class Room {
     private String blockId;
     private String floorNr;
     private String roomNr;
+
+    private Measurmeant measurmeant;
+
     //roomId is generated from the previous 3 Strings
     private String roomId;
 
@@ -54,6 +57,14 @@ public class Room {
     public void generateId()
     {
         this.roomId=(""+this.blockId.toString()+this.floorNr.toString()+this.roomNr.toString()).trim();
+    }
+
+    public Measurmeant getMeasurmeant() {
+        return measurmeant;
+    }
+
+    public void setMeasurmeant(Measurmeant measurmeant) {
+        this.measurmeant = measurmeant;
     }
 }
 
