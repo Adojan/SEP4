@@ -12,6 +12,10 @@
     <string name="first_floor">First floor</string>
     <string name="second_floor">Second floor</string>
     <string name="third_floor">Third floor</string>
+    <string name="select_room">Select room</string>
+    <string name="find_room">Find room</string>
+    <string name="all_rooms">All rooms</string>
+    <string name="availabe_rooms">Available rooms</string>
 
 
 </resources>
