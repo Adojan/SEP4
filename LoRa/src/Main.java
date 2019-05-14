@@ -1,9 +1,25 @@
+import controller.WebSocketClient;
+
 public class Main {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
 
+        WebSocketClient webSocketClient = new WebSocketClient();
+        while (true) {
+
+        }
+    }
+
+
+//        try {
+//            MongoDBClient mongoDBClient = new MongoDBClient();
+//            mongoDBClient.setData("Measurements");
+//        } catch (MongoSecurityException mse) {
+//            System.err.println(">>" + mse.getClass().getName() + ": " + mse.getMessage());
+//            JOptionPane.showMessageDialog(null, "Invalid Credentials, login denied, security");
+//        }
 
 
 //        controller.WebSocketClient listner = new controller.WebSocketClient();
@@ -28,7 +44,7 @@ public class Main {
 //            e.printStackTrace();
 //        }
 //        new Scanner(System.in);
-    }
-
 }
+
+
 

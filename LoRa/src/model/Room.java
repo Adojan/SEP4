@@ -3,9 +3,14 @@ package model;
 public class Room {
     private Measurements measurements;
 
+    public Room() {
+        measurements = new Measurements();
+    }
+
     public Room(Measurements measurements) {
         this.measurements = measurements;
     }
+
 
     public Measurements getMeasurements() {
         return measurements;

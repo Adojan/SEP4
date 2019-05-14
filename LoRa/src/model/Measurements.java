@@ -10,7 +10,13 @@ public class Measurements {
         this.temperature = temperature;
         this.humidity = humidity;
         this.co2 = co2;
-     //   dateTime.getDate();
+        //   dateTime.getDate();
+    }
+
+    public Measurements() {
+        temperature = 20;
+        humidity = 30;
+        co2 = 100;
     }
 
     public double getTemperature() {
