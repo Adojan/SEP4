@@ -33,6 +33,7 @@ These functions will not normally be used, and be very careful to know what you 
 \}
 */
 
+
 #ifndef MH_Z19_H_
 #define MH_Z19_H_
 #include <stdbool.h>
@@ -166,14 +167,14 @@ void my_co2_call_back(uint16_t ppm)
 -# Add to application initialization:
 Initialise the driver:
 \code
-	// The first parameter is the USART port the MH-Z19 sensor is connected to - in this case USART3
+	// The first parameter is the USART port the MH-Z19 sensor is connected to - in this case USART2
 	// The second parameter is the address of the call back function
-	mh_z19_create(ser_USART3, my_co2_call_back); 
+	mh_z19_create(ser_USART2, my_co2_call_back); 
 \endcode
 
-\section lora_perform_co2_meassuring Perform a CO<sub>2</sub> measuring
+\section lora_perform_co2_meassuring Perform a CO<sub>2</sub> meassuring
 
-In this use case, a CO<sub>2</sub> measuring will be performed.
+In this use case, a CO<sub>2</sub> meassuring will be performed.
 
 \note The driver must be initialised \ref mh_z19_initialise before a measuring can be performed.
 
@@ -192,7 +193,7 @@ In this use case, a CO<sub>2</sub> measuring will be performed.
 	}
  \endcode
 
--# When the driver has received the new ppm value from the sensor the specified call back function (see \ref mh_z19_initialise) will be called.
+-# When the driver has received the new ppm value from the sensor the speciefied call back function (see \ref mh_z19_initialise) will be called.
 */
 
 #endif /* MH_Z19_H_ */
