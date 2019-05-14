@@ -45,7 +45,7 @@ public class MainCreateUsers extends AppCompatActivity implements View.OnClickLi
         signIn = findViewById(R.id.signIn);
         register.setOnClickListener(this);
         signIn.setOnClickListener(this);
-        passwordReenter=findViewById(R.id.passwordReenter);
+        passwordReenter = findViewById(R.id.passwordReenter);
     }
 
     // method that initializes the input fields as strings and uses a boolean approach to check if the fields are empty or not
@@ -70,7 +70,7 @@ public class MainCreateUsers extends AppCompatActivity implements View.OnClickLi
             //stops the function from executing further
             return;
         }
-        if (password.length()<6) {
+        if (password.length() < 6) {
             Toast.makeText(this, "The password must be at least 6 characters long", Toast.LENGTH_SHORT).show();
             //stops the function from executing further
             return;
@@ -99,13 +99,12 @@ public class MainCreateUsers extends AppCompatActivity implements View.OnClickLi
                     }
                 }
             });
-        }else {
+        } else {
             Toast.makeText(this, "Passwords don't match", Toast.LENGTH_SHORT).show();
             //stops the function from executing further
             return;
         }
     }
-
 
 
     // creates the on click listener functionality for the register button and the signIn text
