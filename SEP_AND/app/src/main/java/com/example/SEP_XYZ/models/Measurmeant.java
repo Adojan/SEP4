@@ -1,12 +1,13 @@
 package com.example.SEP_XYZ.models;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-public class Measurmeant {
+public class Measurmeant implements Serializable {
 
     private int CO2;
     private float humidity;
