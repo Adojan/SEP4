@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.widget.ArrayAdapter;
 
 import com.example.SEP_XYZ.R;
+import com.example.SEP_XYZ.models.Measurmeant;
 import com.example.SEP_XYZ.models.Room;
 import com.example.SEP_XYZ.models.RoomList;
 
@@ -24,6 +25,7 @@ public class RoomsRepository {
     private ArrayList<Room> rooms=new ArrayList<>();
     private RoomList availableRooms=new RoomList();
     private Room availableRoom=new Room("F","3","07");
+    private Measurmeant measurmeant = new Measurmeant(400,50,21);
 
     private static RoomsRepository instance;
 
@@ -56,6 +58,7 @@ public class RoomsRepository {
                 }
             }
         }
+        availableRoom.setMeasurmeant(measurmeant);
         availableRooms.addRoom(availableRoom);
     }
     public ArrayList<Room> getRoomsArayList()

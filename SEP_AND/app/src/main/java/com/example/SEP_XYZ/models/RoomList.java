@@ -37,6 +37,7 @@ public class RoomList {
     {
         return roomList.get(index);
     }
+
     public void addRoom(Room room)
     {
         roomList.add(room);
