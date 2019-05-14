@@ -15,10 +15,10 @@ public class Measurmeant implements Serializable {
     private String dateTime;
     private final DateFormat df = new SimpleDateFormat("d MMM yyyy HH:mm:ss");
 
-    public Measurmeant() {}
+    public Measurmeant() {
+    }
 
     public Measurmeant(int CO2, float humidity, float temperature) {
-
 
 
         this.CO2 = CO2;
@@ -58,7 +58,8 @@ public class Measurmeant implements Serializable {
     public void setDateTime(String dateTime) {
         this.dateTime = dateTime;
     }
+
     public void setDateTime(Date dateTime) {
-        this.dateTime =df.format(dateTime) ;
+        this.dateTime = df.format(dateTime);
     }
 }

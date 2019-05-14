@@ -36,10 +36,7 @@ public class SelectRoomActivity extends AppCompatActivity {
     private RoomsRepository roomsRepository;
 
 
-
     private SelectRoomViewModel selectRoomViewModel;
-
-
 
 
     @Override
@@ -51,72 +48,61 @@ public class SelectRoomActivity extends AppCompatActivity {
         String[] allFloorIds = getResources().getStringArray(R.array.floorNrs);
         String[] allRoomIds = getResources().getStringArray(R.array.roomNrs);
 
-        blockIdAll=findViewById(R.id.blockIdAll);
-        floorNrAll=findViewById(R.id.floorIdAll);
-        roomNrAll=findViewById(R.id.roomNrAll);
+        blockIdAll = findViewById(R.id.blockIdAll);
+        floorNrAll = findViewById(R.id.floorIdAll);
+        roomNrAll = findViewById(R.id.roomNrAll);
 
-        roomId=findViewById(R.id.roomIdIntent);
-        floorNrAvailable=findViewById(R.id.floorNr);
-        roomNrAvailable=findViewById(R.id.roomNr);
+        roomId = findViewById(R.id.roomIdIntent);
+        floorNrAvailable = findViewById(R.id.floorNr);
+        roomNrAvailable = findViewById(R.id.roomNr);
 
-        selectRoom=findViewById(R.id.selectRoom);
+        selectRoom = findViewById(R.id.selectRoom);
 
-        blockIdImage=findViewById(R.id.blockImg);
+        blockIdImage = findViewById(R.id.blockImg);
 
-        availableRoomLayout=findViewById(R.id.availableROmmLayout);
+        availableRoomLayout = findViewById(R.id.availableROmmLayout);
 
         selectRoomViewModel = new SelectRoomViewModel();
         selectRoomViewModel.init();
 
-        selectRoomViewModel.setAdapter(this,allBlockIds,blockIdAll);
-        selectRoomViewModel.setAdapter(this,allFloorIds,floorNrAll);
-        selectRoomViewModel.setAdapter(this,allRoomIds,roomNrAll);
+        selectRoomViewModel.setAdapter(this, allBlockIds, blockIdAll);
+        selectRoomViewModel.setAdapter(this, allFloorIds, floorNrAll);
+        selectRoomViewModel.setAdapter(this, allRoomIds, roomNrAll);
 
         roomsRepository = RoomsRepository.getInstance();
         roomsRepository.setRooms();
 
-    selectRoomViewModel.setAvailableRoomInfo(selectRoomViewModel.getRoomsRepository().getAvailableRoom(),floorNrAvailable,roomNrAvailable,roomId);
+        selectRoomViewModel.setAvailableRoomInfo(selectRoomViewModel.getRoomsRepository().getAvailableRoom(), floorNrAvailable, roomNrAvailable, roomId);
 
-available=roomsRepository.getAvailableRoom();
+        available = roomsRepository.getAvailableRoom();
 
-   selectRoom.setOnClickListener(new View.OnClickListener() {
-       @Override
-       public void onClick(View v) {
-           if(selectRoomViewModel.verifyAvailability(blockIdAll,floorNrAll,roomNrAll,available))
-           {
-               goToRoom(v);
-               return;
-           }
-           goToNotAvailabe(v);
-       }
-   });
-
-//        selectRoomViewModel.setAdapter(this,allBlockIds,"1");
-//        selectRoomViewModel.setAdapter(this,allBlockIds,blockIdAll);
-//        selectRoomViewModel.setAdapter(this,allBlockIds,blockIdAll);
+        selectRoom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (selectRoomViewModel.verifyAvailability(blockIdAll, floorNrAll, roomNrAll, available)) {
+                    goToRoom(v);
+                    return;
+                }
+                goToNotAvailabe(v);
+            }
+        });
 
 
     }
-    public void goToRoom(View view)
-    {
-        Intent intent=new Intent(SelectRoomActivity.this, RoomActivity.class);
-        intent.putExtra("id",available.getRoomId());
-        startActivity(intent);
-    }
-    public void goToNotAvailabe(View view)
-    {
 
-
-        Intent intent=new Intent(SelectRoomActivity.this, NOT_AVAILABE.class);
-        intent.putExtra("id",selectRoomViewModel.createRoomReturnID(blockIdAll,floorNrAll,roomNrAll));
+    public void goToRoom(View view) {
+        Intent intent = new Intent(SelectRoomActivity.this, RoomActivity.class);
+        intent.putExtra("id", available.getRoomId());
         startActivity(intent);
     }
 
-//    public void setAdapter(String[] ids, Spinner spinner)
-//    {
-//        ArrayAdapter arrayAdapter = new ArrayAdapter(getApplicationContext(),R.layout.support_simple_spinner_dropdown_item,ids);
-//        spinner.setAdapter(arrayAdapter);
-//    }
+    public void goToNotAvailabe(View view) {
+
+
+        Intent intent = new Intent(SelectRoomActivity.this, NOT_AVAILABE.class);
+        intent.putExtra("id", selectRoomViewModel.createRoomReturnID(blockIdAll, floorNrAll, roomNrAll));
+        startActivity(intent);
+    }
 
 
 }

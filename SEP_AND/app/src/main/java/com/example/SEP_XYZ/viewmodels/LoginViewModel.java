@@ -16,33 +16,31 @@ public class LoginViewModel extends ViewModel {
     public void init() {
         if (mFireBaseModel != null) return;
         mFireBaseModel = new FireBaseModel();
-        if(administrator!=null)return;
-        administrator=new Administrator();
+        if (administrator != null) return;
+        administrator = new Administrator();
     }
 
     public FireBaseModel getmFireBaseModel() {
         return mFireBaseModel;
     }
-    public String geStringFromTextView(TextView textView)
-    {
+
+    public String geStringFromTextView(TextView textView) {
         String s = textView.getText().toString();
         return s;
     }
-    public boolean checkEmptyTextField(TextView textView)
-    {
+
+    public boolean checkEmptyTextField(TextView textView) {
         return TextUtils.isEmpty(textView.getText().toString());
     }
 
-    public Administrator getAdministrator()
-    {
+    public Administrator getAdministrator() {
         return administrator;
     }
 
-    public boolean checkIfAdministrator(TextView email, TextView password)
-    {
-        String emailAdmin=geStringFromTextView(email);
-        String passwordAdmin=geStringFromTextView(password);
-        return  (administrator.getEmail().equals(emailAdmin)&& administrator.getPassword().equals(passwordAdmin));
+    public boolean checkIfAdministrator(TextView email, TextView password) {
+        String emailAdmin = geStringFromTextView(email);
+        String passwordAdmin = geStringFromTextView(password);
+        return (administrator.getEmail().equals(emailAdmin) && administrator.getPassword().equals(passwordAdmin));
 
     }
 

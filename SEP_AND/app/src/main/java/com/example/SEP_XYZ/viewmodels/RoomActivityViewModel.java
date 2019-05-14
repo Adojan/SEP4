@@ -16,24 +16,22 @@ import java.util.List;
 public class RoomActivityViewModel extends ViewModel {
     private MutableLiveData<List<Room>> mtbRoom;
     private RoomsRepository roomsRepository;
-    private RoomAdapter roomAdapter;
 
-    public void init()
-    {
+
+    public void init() {
         if (mtbRoom != null) return;
-        roomsRepository=RoomsRepository.getInstance();
-        mtbRoom=roomsRepository.getRooms();
+        roomsRepository = RoomsRepository.getInstance();
+        mtbRoom = roomsRepository.getRooms();
 
     }
-    public LiveData<List<Room>> getRooms()
-    {
+
+    public LiveData<List<Room>> getRooms() {
         return mtbRoom;
     }
 
-    public void setData(String id, TextView CO2, TextView temperature, TextView humidity)
-    {
-       Room room= roomsRepository.getAvailableRooms().getRoomById(id);
-        Measurmeant temp=room.getMeasurmeant();
+    public void setData(String id, TextView CO2, TextView temperature, TextView humidity) {
+        Room room = roomsRepository.getAvailableRooms().getRoomById(id);
+        Measurmeant temp = room.getMeasurmeant();
         CO2.setText(String.valueOf(temp.getCO2()));
         temperature.setText(String.valueOf(temp.getTemperature()));
         humidity.setText(String.valueOf(temp.getHumidity()));
