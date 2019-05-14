@@ -18,6 +18,8 @@ import com.example.SEP_XYZ.models.RoomList;
 import com.example.SEP_XYZ.repositories.RoomsRepository;
 import com.example.SEP_XYZ.views.SelectRoomActivity;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,6 +70,20 @@ public class SelectRoomViewModel {
     public RoomsRepository getRoomsRepository()
     {
         return roomsRepository;
+    }
+    public boolean verifyAvailability(Spinner block, Spinner floor, Spinner roomNr,Room room)
+    {
+        Room tmp =new Room(block.getSelectedItem().toString(), floor.getSelectedItem().toString(),roomNr.getSelectedItem().toString());
+        if (room.getRoomId().equals(tmp.getRoomId()))
+        {
+            return true;
+        }
+        return false;
+    }
+    public String createRoomReturnID(Spinner block, Spinner floor, Spinner roomNr )
+    {
+        Room tmp =new Room(block.getSelectedItem().toString(), floor.getSelectedItem().toString(),roomNr.getSelectedItem().toString());
+        return tmp.getRoomId();
     }
 
 

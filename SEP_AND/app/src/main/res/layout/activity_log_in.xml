@@ -85,14 +85,14 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="18dp"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/person" />
 
             <EditText
                 android:id="@+id/userId"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
@@ -107,14 +107,14 @@
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="18dp"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/password" />
 
             <EditText
                 android:id="@+id/passwordId"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
@@ -192,7 +192,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/login_user"
+        android:text="@string/log_in"
         android:textSize="25dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline8"
         app:layout_constraintHorizontal_bias="0.478"
