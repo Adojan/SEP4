@@ -45,6 +45,9 @@
     <string name="find_room">Find room</string>
     <string name="all_rooms">All rooms</string>
     <string name="availabe_rooms">Available rooms</string>
+    <string name="CO2">CO2:</string>
+    <string name="Humidity">Humidity:</string>
+    <string name="Temperature">Temperature:</string>
 
 
 </resources>

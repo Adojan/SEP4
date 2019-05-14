@@ -1,5 +1,7 @@
 package controller;
 
+import model.Room;
+
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.WebSocket;
@@ -7,17 +9,17 @@ import java.nio.ByteBuffer;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
-public class WebSocketClient implements WebSocket.Listener, Decrypt {
+public class WebSocketClient implements WebSocket.Listener, ExportRoom {
     private String token = "wss://iotnet.teracom.dk/app?token=vnoRjwAAABFpb3RuZXQudGVyYWNvbS5ka79QaSF5zzp-QuFIXpC6XZQ=";
-    private Raw_Data rawData;
-
+    private DecryptHandler decryptHandler;
 
 
     public WebSocketClient() {
         HttpClient httpClient = HttpClient.newHttpClient();
         CompletableFuture<WebSocket> ws = httpClient.newWebSocketBuilder()
                 .buildAsync(URI.create(token), this);
-        rawData = new Raw_Data();
+        decryptHandler = new DecryptHandler();
+
     }
 
     //onOpen()
@@ -63,14 +65,19 @@ public class WebSocketClient implements WebSocket.Listener, Decrypt {
     //onText()
     public CompletionStage<?> onText​(WebSocket webSocket, CharSequence data, boolean last) {
         System.out.println(data);
-        rawData.setData(data.toString());
+
+        decryptHandler.setExtractedData(data.toString());
+        decryptHandler.getExtractedData();
+
+
         webSocket.request(1);
         return new CompletableFuture().completedFuture("onText() completed.").thenAccept(System.out::println);
     }
 
 
     @Override
-    public void decryptRawData(DecryptHandler decryptHandler) {
-        decryptHandler.getDataForRoom(rawData);
+    public Room exportRoom() {
+
+        return decryptHandler.getDataForRoom();
     }
 }
