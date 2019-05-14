@@ -7,7 +7,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.SEP_XYZ.R;
 import com.example.SEP_XYZ.adapters.RoomAdapter;
@@ -56,6 +58,20 @@ public class SelectRoomViewModel {
         ArrayAdapter arrayAdapter = new ArrayAdapter(context,R.layout.support_simple_spinner_dropdown_item,ids);
         spinner.setAdapter(arrayAdapter);
     }
+    public void setAvailableRoomInfo(Room room, TextView flnr, TextView rmnr, TextView rmid )
+    {
+        flnr.setText("Floor number: "+room.getFloorNr());
+        rmnr.setText("Room number: "+room.getRoomNr());
+        rmid.setText("Room id: "+room.getRoomId());
+
+    }
+    public RoomsRepository getRoomsRepository()
+    {
+        return roomsRepository;
+    }
+
+
+
 
 
 

@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
 
-        login = findViewById(R.id.login);
+        login = findViewById(R.id.registerTechnician);
         email = findViewById(R.id.userId);
         password = findViewById(R.id.passwordId);
 
@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-        //check if the account belongs to the admin
+
 
 
 
@@ -74,6 +74,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         Intent Login = new Intent(LoginActivity.this, SelectRoomActivity.class);
                         startActivity(Login);
+                        //check if the account belongs to the admin
                     }else if (loginViewModel.checkIfAdministrator(email, password)) {
                         Intent intent = new Intent(LoginActivity.this, AdminSelectRoomActivity.class);
                         startActivity(intent);

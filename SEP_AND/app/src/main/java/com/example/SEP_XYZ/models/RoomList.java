@@ -7,6 +7,7 @@ public class RoomList {
     private ArrayList<Room> roomList;
 
     public RoomList() {
+        roomList=new ArrayList<>();
 
     }
 
@@ -35,5 +36,9 @@ public class RoomList {
     public Room getRoomAtIndex(int index)
     {
         return roomList.get(index);
+    }
+    public void addRoom(Room room)
+    {
+        roomList.add(room);
     }
 }

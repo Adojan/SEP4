@@ -6,6 +6,7 @@ import android.widget.ArrayAdapter;
 
 import com.example.SEP_XYZ.R;
 import com.example.SEP_XYZ.models.Room;
+import com.example.SEP_XYZ.models.RoomList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,8 @@ public class RoomsRepository {
     int i,j,k;
 
     private ArrayList<Room> rooms=new ArrayList<>();
+    private RoomList availableRooms=new RoomList();
+    private Room availableRoom=new Room("f","3","07");
 
     private static RoomsRepository instance;
 
@@ -53,6 +56,7 @@ public class RoomsRepository {
                 }
             }
         }
+        availableRooms.addRoom(availableRoom);
     }
     public ArrayList<Room> getRoomsArayList()
     {
@@ -61,6 +65,14 @@ public class RoomsRepository {
     public int size()
     {
         return rooms.size();
+    }
+    public RoomList getAvailableRooms()
+    {
+        return availableRooms;
+    }
+    public Room getAvailableRoom()
+    {
+        return availableRoom;
     }
 
 

@@ -142,7 +142,7 @@
         app:srcCompat="@drawable/hot_water" />
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/registerTechnician"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
