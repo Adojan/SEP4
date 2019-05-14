@@ -23,6 +23,7 @@ public class RoomActivityViewModel extends ViewModel {
         if (mtbRoom != null) return;
         roomsRepository=RoomsRepository.getInstance();
         mtbRoom=roomsRepository.getRooms();
+
     }
     public LiveData<List<Room>> getRooms()
     {

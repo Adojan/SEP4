@@ -1,8 +1,9 @@
 package com.example.SEP_XYZ.models;
 
 
+import java.io.Serializable;
 
-public class Room {
+public class Room implements Serializable {
     private String blockId;
     private String floorNr;
     private String roomNr;
