@@ -1,0 +1,474 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ForProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AllCO2Facts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="RoomId" Type="int" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="CO2Percentage" Type="decimal" Precision="15" Scale="0" />
+          <Property Name="Time" Type="time" Precision="7" />
+          <Property Name="Date" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ForProject.dbo.AllHumidityFacts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AllHumidityFacts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="RoomId" Type="int" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="HumidityPercentage" Type="decimal" Precision="15" Scale="0" />
+          <Property Name="Time" Type="time" Precision="7" />
+          <Property Name="Date" Type="date" />
+        </EntityType>
+        <EntityType Name="AllTemperatureFacts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="RoomId" Type="int" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Temperature" Type="decimal" Precision="15" Scale="0" />
+          <Property Name="Time" Type="time" Precision="7" />
+          <Property Name="Date" Type="date" />
+        </EntityType>
+        <EntityType Name="Rooms">
+          <Key>
+            <PropertyRef Name="RoomId" />
+          </Key>
+          <Property Name="RoomId" Type="int" Nullable="false" />
+          <Property Name="Block" Type="nchar" MaxLength="50" />
+          <Property Name="Building" Type="nchar" MaxLength="50" />
+          <Property Name="Floor" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ForProject.dbo.STAGE.AllCO2Facts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="STAGE_AllCO2Facts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="RoomId" Type="int" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="CO2Percentage" Type="decimal" Precision="15" Scale="0" />
+          <Property Name="Time" Type="time" Precision="7" />
+          <Property Name="Date" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ForProject.dbo.STAGE.AllHumidityFacts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="STAGE_AllHumidityFacts">
+          <Key>
+            <PropertyRef Name="ID2" />
+          </Key>
+          <Property Name="RoomId" Type="nchar" MaxLength="10" />
+          <Property Name="ID2" Type="int" Nullable="false" />
+          <Property Name="HumidityPercentage" Type="decimal" Precision="15" Scale="0" />
+          <Property Name="Time" Type="time" Precision="7" />
+          <Property Name="Date" Type="date" />
+          <Property Name="AverageHumidityPerMonth" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AverageHumidityPerYear" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="STAGE_AllTemperatureFacts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="RoomId" Type="int" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Temperature" Type="decimal" Precision="15" Scale="0" />
+          <Property Name="Time" Type="time" Precision="7" />
+          <Property Name="Date" Type="date" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nchar" MaxLength="50" />
+          <Property Name="LastName" Type="nchar" MaxLength="50" />
+          <Property Name="DOB" Type="datetime" />
+          <Property Name="Phone" Type="int" />
+          <Property Name="Email" Type="nchar" MaxLength="50" />
+          <Property Name="Password" Type="nchar" MaxLength="50" />
+          <Property Name="Major" Type="nchar" MaxLength="100" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+          <Property Name="Street" Type="nchar" MaxLength="100" />
+          <Property Name="StreetNr" Type="int" />
+          <Property Name="City" Type="nchar" MaxLength="50" />
+          <Property Name="PostalCode" Type="int" />
+          <Property Name="Country" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_AllCO2Facts_Rooms">
+          <End Role="Rooms" Type="Self.Rooms" Multiplicity="0..1" />
+          <End Role="AllCO2Facts" Type="Self.AllCO2Facts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rooms">
+              <PropertyRef Name="RoomId" />
+            </Principal>
+            <Dependent Role="AllCO2Facts">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AllHumidityFacts_Rooms">
+          <End Role="Rooms" Type="Self.Rooms" Multiplicity="0..1" />
+          <End Role="AllHumidityFacts" Type="Self.AllHumidityFacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rooms">
+              <PropertyRef Name="RoomId" />
+            </Principal>
+            <Dependent Role="AllHumidityFacts">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AllTemperatureFacts_Rooms">
+          <End Role="Rooms" Type="Self.Rooms" Multiplicity="0..1" />
+          <End Role="AllTemperatureFacts" Type="Self.AllTemperatureFacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rooms">
+              <PropertyRef Name="RoomId" />
+            </Principal>
+            <Dependent Role="AllTemperatureFacts">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ForProjectModelStoreContainer">
+          <EntitySet Name="AllCO2Facts" EntityType="Self.AllCO2Facts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AllTemperatureFacts" EntityType="Self.AllTemperatureFacts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rooms" EntityType="Self.Rooms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STAGE_AllTemperatureFacts" EntityType="Self.STAGE_AllTemperatureFacts" Schema="dbo" Table="STAGE.AllTemperatureFacts" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AllHumidityFacts" EntityType="Self.AllHumidityFacts" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AllHumidityFacts].[RoomId] AS [RoomId], 
+    [AllHumidityFacts].[ID] AS [ID], 
+    [AllHumidityFacts].[HumidityPercentage] AS [HumidityPercentage], 
+    [AllHumidityFacts].[Time] AS [Time], 
+    [AllHumidityFacts].[Date] AS [Date]
+    FROM [dbo].[AllHumidityFacts] AS [AllHumidityFacts]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="STAGE_AllCO2Facts" EntityType="Self.STAGE_AllCO2Facts" store:Type="Tables" store:Schema="dbo" store:Name="STAGE.AllCO2Facts">
+            <DefiningQuery>SELECT 
+    [STAGE_AllCO2Facts].[RoomId] AS [RoomId], 
+    [STAGE_AllCO2Facts].[ID] AS [ID], 
+    [STAGE_AllCO2Facts].[CO2Percentage] AS [CO2Percentage], 
+    [STAGE_AllCO2Facts].[Time] AS [Time], 
+    [STAGE_AllCO2Facts].[Date] AS [Date]
+    FROM [dbo].[STAGE.AllCO2Facts] AS [STAGE_AllCO2Facts]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="STAGE_AllHumidityFacts" EntityType="Self.STAGE_AllHumidityFacts" store:Type="Tables" store:Schema="dbo" store:Name="STAGE.AllHumidityFacts">
+            <DefiningQuery>SELECT 
+    [STAGE_AllHumidityFacts].[RoomId] AS [RoomId], 
+    [STAGE_AllHumidityFacts].[ID2] AS [ID2], 
+    [STAGE_AllHumidityFacts].[HumidityPercentage] AS [HumidityPercentage], 
+    [STAGE_AllHumidityFacts].[Time] AS [Time], 
+    [STAGE_AllHumidityFacts].[Date] AS [Date], 
+    [STAGE_AllHumidityFacts].[AverageHumidityPerMonth] AS [AverageHumidityPerMonth], 
+    [STAGE_AllHumidityFacts].[AverageHumidityPerYear] AS [AverageHumidityPerYear]
+    FROM [dbo].[STAGE.AllHumidityFacts] AS [STAGE_AllHumidityFacts]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_AllCO2Facts_Rooms" Association="Self.FK_AllCO2Facts_Rooms">
+            <End Role="Rooms" EntitySet="Rooms" />
+            <End Role="AllCO2Facts" EntitySet="AllCO2Facts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AllHumidityFacts_Rooms" Association="Self.FK_AllHumidityFacts_Rooms">
+            <End Role="Rooms" EntitySet="Rooms" />
+            <End Role="AllHumidityFacts" EntitySet="AllHumidityFacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AllTemperatureFacts_Rooms" Association="Self.FK_AllTemperatureFacts_Rooms">
+            <End Role="Rooms" EntitySet="Rooms" />
+            <End Role="AllTemperatureFacts" EntitySet="AllTemperatureFacts" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ForProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AllCO2Facts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="RoomId" Type="Int32" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="CO2Percentage" Type="Decimal" Precision="15" Scale="0" />
+          <Property Name="Time" Type="Time" Precision="7" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Room" Relationship="Self.FK_AllCO2Facts_Rooms" FromRole="AllCO2Facts" ToRole="Rooms" />
+        </EntityType>
+        <EntityType Name="AllTemperatureFact">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="RoomId" Type="Int32" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Temperature" Type="Decimal" Precision="15" Scale="0" />
+          <Property Name="Time" Type="Time" Precision="7" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Room" Relationship="Self.FK_AllTemperatureFacts_Rooms" FromRole="AllTemperatureFacts" ToRole="Rooms" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="RoomId" />
+          </Key>
+          <Property Name="RoomId" Type="Int32" Nullable="false" />
+          <Property Name="Block" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Building" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Floor" Type="Int32" />
+          <NavigationProperty Name="AllCO2Facts" Relationship="Self.FK_AllCO2Facts_Rooms" FromRole="Rooms" ToRole="AllCO2Facts" />
+          <NavigationProperty Name="AllTemperatureFacts" Relationship="Self.FK_AllTemperatureFacts_Rooms" FromRole="Rooms" ToRole="AllTemperatureFacts" />
+          <NavigationProperty Name="AllHumidityFacts" Relationship="Self.FK_AllHumidityFacts_Rooms" FromRole="Rooms" ToRole="AllHumidityFacts" />
+        </EntityType>
+        <EntityType Name="STAGE_AllTemperatureFacts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="RoomId" Type="Int32" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Temperature" Type="Decimal" Precision="15" Scale="0" />
+          <Property Name="Time" Type="Time" Precision="7" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="DOB" Type="DateTime" Precision="3" />
+          <Property Name="Phone" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Major" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Street" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="StreetNr" Type="Int32" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="PostalCode" Type="Int32" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AllHumidityFact">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="RoomId" Type="Int32" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="HumidityPercentage" Type="Decimal" Precision="15" Scale="0" />
+          <Property Name="Time" Type="Time" Precision="7" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Room" Relationship="Self.FK_AllHumidityFacts_Rooms" FromRole="AllHumidityFacts" ToRole="Rooms" />
+        </EntityType>
+        <EntityType Name="STAGE_AllCO2Facts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="RoomId" Type="Int32" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="CO2Percentage" Type="Decimal" Precision="15" Scale="0" />
+          <Property Name="Time" Type="Time" Precision="7" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="STAGE_AllHumidityFacts">
+          <Key>
+            <PropertyRef Name="ID2" />
+          </Key>
+          <Property Name="RoomId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ID2" Type="Int32" Nullable="false" />
+          <Property Name="HumidityPercentage" Type="Decimal" Precision="15" Scale="0" />
+          <Property Name="Time" Type="Time" Precision="7" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="AverageHumidityPerMonth" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AverageHumidityPerYear" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <Association Name="FK_AllCO2Facts_Rooms">
+          <End Role="Rooms" Type="Self.Room" Multiplicity="0..1" />
+          <End Role="AllCO2Facts" Type="Self.AllCO2Facts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rooms">
+              <PropertyRef Name="RoomId" />
+            </Principal>
+            <Dependent Role="AllCO2Facts">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AllTemperatureFacts_Rooms">
+          <End Role="Rooms" Type="Self.Room" Multiplicity="0..1" />
+          <End Role="AllTemperatureFacts" Type="Self.AllTemperatureFact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rooms">
+              <PropertyRef Name="RoomId" />
+            </Principal>
+            <Dependent Role="AllTemperatureFacts">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AllHumidityFacts_Rooms">
+          <End Role="Rooms" Type="Self.Room" Multiplicity="0..1" />
+          <End Role="AllHumidityFacts" Type="Self.AllHumidityFact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rooms">
+              <PropertyRef Name="RoomId" />
+            </Principal>
+            <Dependent Role="AllHumidityFacts">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ForProjectEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AllCO2Facts" EntityType="Self.AllCO2Facts" />
+          <EntitySet Name="AllTemperatureFacts" EntityType="Self.AllTemperatureFact" />
+          <EntitySet Name="Rooms" EntityType="Self.Room" />
+          <EntitySet Name="STAGE_AllTemperatureFacts" EntityType="Self.STAGE_AllTemperatureFacts" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="AllHumidityFacts" EntityType="Self.AllHumidityFact" />
+          <EntitySet Name="STAGE_AllCO2Facts" EntityType="Self.STAGE_AllCO2Facts" />
+          <EntitySet Name="STAGE_AllHumidityFacts" EntityType="Self.STAGE_AllHumidityFacts" />
+          <AssociationSet Name="FK_AllCO2Facts_Rooms" Association="Self.FK_AllCO2Facts_Rooms">
+            <End Role="Rooms" EntitySet="Rooms" />
+            <End Role="AllCO2Facts" EntitySet="AllCO2Facts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AllTemperatureFacts_Rooms" Association="Self.FK_AllTemperatureFacts_Rooms">
+            <End Role="Rooms" EntitySet="Rooms" />
+            <End Role="AllTemperatureFacts" EntitySet="AllTemperatureFacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AllHumidityFacts_Rooms" Association="Self.FK_AllHumidityFacts_Rooms">
+            <End Role="Rooms" EntitySet="Rooms" />
+            <End Role="AllHumidityFacts" EntitySet="AllHumidityFacts" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ForProjectModelStoreContainer" CdmEntityContainer="ForProjectEntities">
+          <EntitySetMapping Name="AllCO2Facts">
+            <EntityTypeMapping TypeName="ForProjectModel.AllCO2Facts">
+              <MappingFragment StoreEntitySet="AllCO2Facts">
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CO2Percentage" ColumnName="CO2Percentage" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllTemperatureFacts">
+            <EntityTypeMapping TypeName="ForProjectModel.AllTemperatureFact">
+              <MappingFragment StoreEntitySet="AllTemperatureFacts">
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rooms">
+            <EntityTypeMapping TypeName="ForProjectModel.Room">
+              <MappingFragment StoreEntitySet="Rooms">
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+                <ScalarProperty Name="Block" ColumnName="Block" />
+                <ScalarProperty Name="Building" ColumnName="Building" />
+                <ScalarProperty Name="Floor" ColumnName="Floor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STAGE_AllTemperatureFacts">
+            <EntityTypeMapping TypeName="ForProjectModel.STAGE_AllTemperatureFacts">
+              <MappingFragment StoreEntitySet="STAGE_AllTemperatureFacts">
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ForProjectModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Major" ColumnName="Major" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="StreetNr" ColumnName="StreetNr" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllHumidityFacts">
+            <EntityTypeMapping TypeName="ForProjectModel.AllHumidityFact">
+              <MappingFragment StoreEntitySet="AllHumidityFacts">
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="HumidityPercentage" ColumnName="HumidityPercentage" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STAGE_AllCO2Facts">
+            <EntityTypeMapping TypeName="ForProjectModel.STAGE_AllCO2Facts">
+              <MappingFragment StoreEntitySet="STAGE_AllCO2Facts">
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CO2Percentage" ColumnName="CO2Percentage" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STAGE_AllHumidityFacts">
+            <EntityTypeMapping TypeName="ForProjectModel.STAGE_AllHumidityFacts">
+              <MappingFragment StoreEntitySet="STAGE_AllHumidityFacts">
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+                <ScalarProperty Name="ID2" ColumnName="ID2" />
+                <ScalarProperty Name="HumidityPercentage" ColumnName="HumidityPercentage" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="AverageHumidityPerMonth" ColumnName="AverageHumidityPerMonth" />
+                <ScalarProperty Name="AverageHumidityPerYear" ColumnName="AverageHumidityPerYear" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
