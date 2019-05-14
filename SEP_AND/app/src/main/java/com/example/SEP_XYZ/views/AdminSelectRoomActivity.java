@@ -50,7 +50,7 @@ public class AdminSelectRoomActivity extends AppCompatActivity {
         floorNrAll = findViewById(R.id.floorIdAll);
         roomNrAll = findViewById(R.id.roomNrAll);
 
-        roomId = findViewById(R.id.roomId);
+        roomId = findViewById(R.id.roomIdIntent);
         floorNrAvailable = findViewById(R.id.floorNr);
         roomNrAvailable = findViewById(R.id.roomNr);
 

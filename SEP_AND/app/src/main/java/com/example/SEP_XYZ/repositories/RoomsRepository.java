@@ -23,7 +23,7 @@ public class RoomsRepository {
 
     private ArrayList<Room> rooms=new ArrayList<>();
     private RoomList availableRooms=new RoomList();
-    private Room availableRoom=new Room("f","3","07");
+    private Room availableRoom=new Room("F","3","07");
 
     private static RoomsRepository instance;
 

@@ -18,7 +18,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     {
         super(view);
         this.view=view;
-        roomId=view.findViewById(R.id.roomId);
+        roomId=view.findViewById(R.id.roomIdIntent);
         floorId=view.findViewById(R.id.roomNr);
         roomNr=view.findViewById(R.id.rommNr);
         blockImg=view.findViewById(R.id.blockImg);
