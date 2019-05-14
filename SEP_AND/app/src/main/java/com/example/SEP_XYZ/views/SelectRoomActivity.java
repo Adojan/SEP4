@@ -1,6 +1,5 @@
 package com.example.SEP_XYZ.views;
 
-import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -10,7 +9,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.SEP_XYZ.R;
-import com.example.SEP_XYZ.adapters.ViewHolder;
 import com.example.SEP_XYZ.viewmodels.SelectRoomViewModel;
 
 public class SelectRoomActivity extends AppCompatActivity {

@@ -12,7 +12,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.SEP_XYZ.R;
-import com.example.SEP_XYZ.viewmodels.SelectRoomViewModel;
+import com.example.SEP_XYZ.viewmodels.AdminSelectRoomViewModel;
+
 
 public class AdminSelectRoomActivity extends AppCompatActivity {
 
@@ -33,7 +34,7 @@ public class AdminSelectRoomActivity extends AppCompatActivity {
     private LinearLayout availableRoomLayout;
 
 
-    private SelectRoomViewModel selectRoomViewModel;
+    private AdminSelectRoomViewModel selectRoomViewModel;
 
 
     @Override
@@ -61,7 +62,7 @@ public class AdminSelectRoomActivity extends AppCompatActivity {
 
         availableRoomLayout = findViewById(R.id.availableROmmLayout);
 
-        selectRoomViewModel = new SelectRoomViewModel();
+        selectRoomViewModel = new AdminSelectRoomViewModel();
         selectRoomViewModel.init();
 
         selectRoomViewModel.setAdapter(this, allBlockIds, blockIdAll);
