@@ -21,7 +21,7 @@ public class Room implements Serializable {
         generateId();
     }
 
-    public Room( ) {
+    public Room() {
     }
 
     public String getBlockId() {
@@ -55,9 +55,9 @@ public class Room implements Serializable {
     public void setRoomId(String roomId) {
         this.roomId = roomId;
     }
-    public void generateId()
-    {
-        this.roomId=(""+this.blockId.toString()+this.floorNr.toString()+this.roomNr.toString()).trim();
+
+    public void generateId() {
+        this.roomId = ("" + this.blockId.toString() + this.floorNr.toString() + this.roomNr.toString()).trim();
     }
 
     public Measurmeant getMeasurmeant() {

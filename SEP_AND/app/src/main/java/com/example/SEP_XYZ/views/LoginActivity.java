@@ -61,36 +61,30 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.show();
 
 
-
-
-
-
-
-            // uses fire base sign in method verification
-            loginViewModel.getmFireBaseModel().getmFIreBaseAuth().signInWithEmailAndPassword(loginViewModel.geStringFromTextView(email), loginViewModel.geStringFromTextView(password)).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    // if authentication is completed successfully than it will move to the next page
-                    if (task.isSuccessful()) {
-                        Intent Login = new Intent(LoginActivity.this, SelectRoomActivity.class);
-                        startActivity(Login);
-                        //check if the account belongs to the admin
-                    }else if (loginViewModel.checkIfAdministrator(email, password)) {
-                        Intent intent = new Intent(LoginActivity.this, AdminSelectRoomActivity.class);
-                        startActivity(intent);
-                        progressDialog.dismiss();
-
-
-                    }
-                    else {
-                        Toast.makeText(LoginActivity.this, "Invalid user name or password", Toast.LENGTH_SHORT).show();
-                        progressDialog.dismiss();
-
-                    }
+        // uses fire base sign in method verification
+        loginViewModel.getmFireBaseModel().getmFIreBaseAuth().signInWithEmailAndPassword(loginViewModel.geStringFromTextView(email), loginViewModel.geStringFromTextView(password)).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                // if authentication is completed successfully than it will move to the next page
+                if (task.isSuccessful()) {
+                    Intent Login = new Intent(LoginActivity.this, SelectRoomActivity.class);
+                    startActivity(Login);
+                    //check if the account belongs to the admin
+                } else if (loginViewModel.checkIfAdministrator(email, password)) {
+                    Intent intent = new Intent(LoginActivity.this, AdminSelectRoomActivity.class);
+                    startActivity(intent);
                     progressDialog.dismiss();
+
+
+                } else {
+                    Toast.makeText(LoginActivity.this, "Invalid user name or password", Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
+
                 }
-            });
-        }
+                progressDialog.dismiss();
+            }
+        });
+    }
 
 
 }

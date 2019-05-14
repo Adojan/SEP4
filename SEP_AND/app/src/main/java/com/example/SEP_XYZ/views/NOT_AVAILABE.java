@@ -14,7 +14,7 @@ public class NOT_AVAILABE extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_not__availabe);
-        roomId=findViewById(R.id.textView10);
+        roomId = findViewById(R.id.textView10);
         roomId.setText(getIntent().getStringExtra("id"));
     }
 }

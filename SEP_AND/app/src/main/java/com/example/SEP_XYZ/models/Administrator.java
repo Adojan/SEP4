@@ -3,8 +3,8 @@ package com.example.SEP_XYZ.models;
 public class Administrator {
 
 
-    private final String email="admin@gmail.com";
-    private final String password= "admin123";
+    private final String email = "admin@gmail.com";
+    private final String password = "admin123";
 
     public Administrator() {
 

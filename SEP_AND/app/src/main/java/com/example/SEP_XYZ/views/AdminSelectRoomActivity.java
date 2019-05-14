@@ -60,7 +60,7 @@ public class AdminSelectRoomActivity extends AppCompatActivity {
 
         selectRoom = findViewById(R.id.selectRoom);
 
-        create=findViewById(R.id.goToCreateTechnician);
+        create = findViewById(R.id.goToCreateTechnician);
 
         blockIdImage = findViewById(R.id.blockImg);
 
@@ -72,8 +72,7 @@ public class AdminSelectRoomActivity extends AppCompatActivity {
         roomsRepository = RoomsRepository.getInstance();
         roomsRepository.setRooms();
 
-        available=roomsRepository.getAvailableRoom();
-
+        available = roomsRepository.getAvailableRoom();
 
 
         selectRoomViewModel.setAdapter(this, allBlockIds, blockIdAll);
@@ -85,8 +84,7 @@ public class AdminSelectRoomActivity extends AppCompatActivity {
         selectRoom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(selectRoomViewModel.verifyAvailability(blockIdAll,floorNrAll,roomNrAll,available))
-                {
+                if (selectRoomViewModel.verifyAvailability(blockIdAll, floorNrAll, roomNrAll, available)) {
                     goToRoom(v);
                     return;
                 }
@@ -94,23 +92,23 @@ public class AdminSelectRoomActivity extends AppCompatActivity {
             }
         });
     }
-    public void goToCreateTechnician(View v)
-    {
-     Intent goToTechnician=new Intent(AdminSelectRoomActivity.this,CreateTechnicianActivity.class);
-     startActivity(goToTechnician);
+
+    public void goToCreateTechnician(View v) {
+        Intent goToTechnician = new Intent(AdminSelectRoomActivity.this, CreateTechnicianActivity.class);
+        startActivity(goToTechnician);
     }
-    public void goToRoom(View view)
-    {
-        Intent intent=new Intent(AdminSelectRoomActivity.this, RoomActivity.class);
-        intent.putExtra("id",available.getRoomId());
+
+    public void goToRoom(View view) {
+        Intent intent = new Intent(AdminSelectRoomActivity.this, RoomActivity.class);
+        intent.putExtra("id", available.getRoomId());
         startActivity(intent);
     }
-    public void goToNotAvailabe(View view)
-    {
+
+    public void goToNotAvailabe(View view) {
 
 
-        Intent intent=new Intent(AdminSelectRoomActivity.this, NOT_AVAILABE.class);
-        intent.putExtra("id",selectRoomViewModel.createRoomReturnID(blockIdAll,floorNrAll,roomNrAll));
+        Intent intent = new Intent(AdminSelectRoomActivity.this, NOT_AVAILABE.class);
+        intent.putExtra("id", selectRoomViewModel.createRoomReturnID(blockIdAll, floorNrAll, roomNrAll));
         startActivity(intent);
     }
 }

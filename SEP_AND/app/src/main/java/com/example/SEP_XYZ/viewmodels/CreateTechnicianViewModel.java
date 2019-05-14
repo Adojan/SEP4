@@ -17,23 +17,21 @@ public class CreateTechnicianViewModel extends ViewModel {
     public FireBaseModel getmFireBaseModel() {
         return mFireBaseModel;
     }
-    public String geStringFromTextView(TextView textView)
-    {
+
+    public String geStringFromTextView(TextView textView) {
         String s = textView.getText().toString();
         return s;
     }
-    public boolean checkEmptyTextField(TextView textView)
-    {
+
+    public boolean checkEmptyTextField(TextView textView) {
         return TextUtils.isEmpty(textView.getText().toString());
     }
-    public boolean checkLenght(String s)
-    {
-        if(s.length()<6)
+
+    public boolean checkLenght(String s) {
+        if (s.length() < 6)
             return true;
         return false;
     }
-
-
 
 
 }
