@@ -28,7 +28,7 @@ public class CreateTechnicianViewModel extends ViewModel {
     }
     public boolean checkLenght(String s)
     {
-        if(s.length()<5)
+        if(s.length()<6)
             return true;
         return false;
     }
