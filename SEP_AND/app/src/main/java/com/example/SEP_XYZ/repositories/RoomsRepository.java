@@ -3,7 +3,7 @@ package com.example.SEP_XYZ.repositories;
 import android.arch.lifecycle.MutableLiveData;
 
 
-import com.example.SEP_XYZ.API.RestAPIdummy;
+
 
 import com.example.SEP_XYZ.models.Measurmeant;
 import com.example.SEP_XYZ.models.Room;
@@ -20,7 +20,7 @@ public class RoomsRepository {
     private String[] floorNr = {"0", "1", "2", "3"};
     private String[] roomNr = {"01", "02", "03", "04", "05", "06", "07"};
 
-    private RestAPIdummy restAPIdummy = new RestAPIdummy();
+
 
 
     int i, j, k;
@@ -48,12 +48,7 @@ public class RoomsRepository {
         return mtbRooms;
     }
 
-    public void setMeasurments() {
-        String j = restAPIdummy.sendJson();
-        Gson gson = new Gson();
-        Measurmeant target2 = gson.fromJson(j, Measurmeant.class);
-        availableRoom.setMeasurmeant(target2);
-    }
+
 
     public void setRooms() {
         for (i = 0; i < blockId.length; i++) {
