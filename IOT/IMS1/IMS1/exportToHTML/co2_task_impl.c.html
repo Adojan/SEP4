@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>co2_task_impl.c</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #5f5a60; font-style: italic;}
+.s1 { color: #f8f8f8;}
+.s2 { color: #cda869;}
+.s3 { color: #8f9d6a;}
+.s4 { color: #cf6a4c;}
+</style>
+</head>
+<body bgcolor="#141414">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+co2_task_impl.c</font>
+</center></td></tr></table>
+<pre><span class="s0">/* 
+* co2_task.c 
+* 
+* Created: 5/13/2019 7:22:42 PM 
+*  Author: Ibi 
+*/</span>
+
+<span class="s2">#include </span><span class="s3">&quot;co2_task.h&quot;</span>
+<span class="s2">#include </span><span class="s3">&lt;sensor_sample.h&gt;</span>
+<span class="s2">#include </span><span class="s3">&lt;mh_z19.h&gt;</span>
+
+<span class="s2">extern </span><span class="s1">SemaphoreHandle_t semphCO2;</span>
+<span class="s2">extern </span><span class="s1">QueueHandle_t xPayloadQueue;</span>
+<span class="s2">extern </span><span class="s1">RELOAD_PERIOD;</span>
+<span class="s2">static </span><span class="s1">uint16_t default_co2 </span><span class="s2">= </span><span class="s4">0xffff</span><span class="s1">;</span>
+mh_z19_return_code_t rc;
+<span class="s2">void </span><span class="s1">co2_tsk(</span><span class="s2">void *</span><span class="s1">pvParameters) {</span>
+	BaseType_t xStatus;
+	TickType_t xLastExecutionTime;
+	xLastExecutionTime <span class="s2">= </span><span class="s1">xTaskGetTickCount();</span>
+	
+	sample_t lValueToSend;
+	lValueToSend.s_src<span class="s2">=</span><span class="s1">CO2;</span>
+	lValueToSend.s_value<span class="s2">=</span><span class="s1">default_co2;</span>
+	
+	
+
+	
+	<span class="s2">while</span><span class="s1">(</span><span class="s4">1</span><span class="s1">) {</span>
+		xSemaphoreTake(semphCO2,<span class="s4">0</span><span class="s1">);</span>
+		{
+			rc <span class="s2">= </span><span class="s1">mh_z19_take_meassuring();</span>
+			<span class="s2">if </span><span class="s1">(rc </span><span class="s2">!= </span><span class="s1">MHZ19_OK )</span>
+			{
+			<span class="s0">// something went wrong</span>
+			<span class="s1">printf(</span><span class="s3">&quot;no co2</span><span class="s4">\n</span><span class="s3">&quot;</span><span class="s1">);</span>
+			}
+			<span class="s2">else</span><span class="s1">{</span>
+			mh_z19_get_co2_ppm(default_co2);
+			lValueToSend.s_value<span class="s2">=</span><span class="s1">default_co2;</span>
+			}
+			xStatus <span class="s2">= </span><span class="s1">xQueueSendToBack( xPayloadQueue, </span><span class="s2">&amp;</span><span class="s1">lValueToSend, </span><span class="s4">0 </span><span class="s1">);</span>
+			<span class="s2">if</span><span class="s1">( xStatus </span><span class="s2">!= </span><span class="s1">pdPASS )</span>
+			{
+						
+				printf( <span class="s3">&quot;Task2 Could not send to the queue.</span><span class="s4">\r\n</span><span class="s3">&quot; </span><span class="s1">);</span>
+				vTaskDelayUntil(<span class="s2">&amp;</span><span class="s1">xLastExecutionTime,RELOAD_PERIOD);</span>
+			}
+
+			<span class="s0">//lValueToSend.s_value ++;</span>
+			<span class="s1">vTaskDelayUntil(</span><span class="s2">&amp;</span><span class="s1">xLastExecutionTime,RELOAD_PERIOD);</span>
+			
+		}
+
+		
+	}
+	vTaskDelete(NULL);
+}
+<span class="s2">void </span><span class="s1">my_co2_call_back(uint16_t ppm)</span>
+{
+	default_co2<span class="s2">=</span><span class="s1">ppm;</span>
+	printf(<span class="s3">&quot;co2 is %d</span><span class="s4">\n</span><span class="s3">&quot;</span><span class="s1">,default_co2);</span>
+}
+</pre>
+</body>
+</html>
