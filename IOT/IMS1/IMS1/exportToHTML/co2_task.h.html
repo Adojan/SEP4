@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>co2_task.h</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #5f5a60; font-style: italic;}
+.s1 { color: #f8f8f8;}
+.s2 { color: #cda869;}
+.s3 { color: #8f9d6a;}
+</style>
+</head>
+<body bgcolor="#141414">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+co2_task.h</font>
+</center></td></tr></table>
+<pre><span class="s0">/* 
+* co2_task.h 
+* 
+* Created: 5/13/2019 7:22:29 PM 
+*  Author: Ibi 
+*/</span>
+
+
+<span class="s2">#ifndef </span><span class="s1">CO2_TASK_H_</span>
+<span class="s2">#define </span><span class="s1">CO2_TASK_H_</span>
+
+<span class="s2">#include </span><span class="s3">&lt;avr/io.h&gt;</span>
+<span class="s2">#include </span><span class="s3">&lt;avr/sfr_defs.h&gt;</span>
+<span class="s2">#include </span><span class="s3">&lt;ATMEGA_FreeRTOS.h&gt;</span>
+
+<span class="s2">#include </span><span class="s3">&quot;task.h&quot;</span>
+<span class="s2">#include </span><span class="s3">&quot;semphr.h&quot;</span>
+<span class="s2">#include </span><span class="s3">&quot;stdio_driver.h&quot;</span>
+<span class="s2">#include </span><span class="s3">&quot;queue.h&quot;</span>
+
+<span class="s2">void </span><span class="s1">co2_tsk(</span><span class="s2">void *</span><span class="s1">pvParameters);</span>
+<span class="s2">void </span><span class="s1">my_co2_call_back(uint16_t ppm);</span>
+
+
+
+<span class="s2">#endif </span><span class="s0">/* CO2_TASK_H_ */</span></pre>
+</body>
+</html>
