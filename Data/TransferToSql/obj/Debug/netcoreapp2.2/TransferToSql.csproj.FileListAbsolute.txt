@@ -1,0 +1,8 @@
+C:\Users\Alexa\Source\Repos\TransferToSql\TransferToSql\bin\Debug\netcoreapp2.2\TransferToSql.deps.json
+C:\Users\Alexa\Source\Repos\TransferToSql\TransferToSql\bin\Debug\netcoreapp2.2\TransferToSql.runtimeconfig.json
+C:\Users\Alexa\Source\Repos\TransferToSql\TransferToSql\bin\Debug\netcoreapp2.2\TransferToSql.runtimeconfig.dev.json
+C:\Users\Alexa\Source\Repos\TransferToSql\TransferToSql\bin\Debug\netcoreapp2.2\TransferToSql.dll
+C:\Users\Alexa\Source\Repos\TransferToSql\TransferToSql\obj\Debug\netcoreapp2.2\TransferToSql.csprojAssemblyReference.cache
+C:\Users\Alexa\Source\Repos\TransferToSql\TransferToSql\obj\Debug\netcoreapp2.2\TransferToSql.csproj.CoreCompileInputs.cache
+C:\Users\Alexa\Source\Repos\TransferToSql\TransferToSql\obj\Debug\netcoreapp2.2\TransferToSql.AssemblyInfoInputs.cache
+C:\Users\Alexa\Source\Repos\TransferToSql\TransferToSql\obj\Debug\netcoreapp2.2\TransferToSql.AssemblyInfo.cs
