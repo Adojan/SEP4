@@ -15,20 +15,18 @@ namespace FinalWebApi.Controllers
     public class ValuesController : ApiController
     {
 
-       List<Readings> readings = new List<Readings>();
-        
+        List<Readings> readings = new List<Readings>();
+
         public String result_co2 = "";
         public String result_humidity = "";
         public String result_temperature = "";
-      
 
-       public ValuesController()
+
+        public ValuesController()
         {
             ForProjectEntities entities = new ForProjectEntities();
 
 
-
-           
 
             foreach (AllCO2Facts f in entities.AllCO2Facts.ToList())
             {
@@ -46,19 +44,19 @@ namespace FinalWebApi.Controllers
                 result_temperature = result_temperature + f.ToString();
             }
 
-           
+
 
             int counter = 0;
             int x = 0;
-            
+
 
 
             var c_co2 = result_co2.Split(',');
             var c_humidty = result_humidity.Split(',');
             var c_temperature = result_temperature.Split(',');
-            
 
-            for (int i = 0;i< c_co2.Length;i++)
+
+            for (int i = 0; i < c_co2.Length; i++)
             {
                 Readings reading = new Readings();
 
@@ -77,32 +75,31 @@ namespace FinalWebApi.Controllers
 
             }
 
-            
+
 
         }
 
 
 
         // GET api/values
-        public String  Get()
+        public String Get()
         {
-            String message="";
-            int i=1;
 
+            String message = "";
+            int i = 0;
             foreach (Readings f in readings)
             {
-                    message = message + "ObjectID: " + i + " CO2 Percentage: " + f.getCo2() + " Humidity: " + f.getHumidity() + " Temperature: " + f.getTemperature() + "|||";
-        
+                message = message + " ObjectID: " + i + " / " + " CO2 Percentage: " + f.getCo2() + " / " + " Humidity Percentage: " + f.getHumidity() + " / " + " Temperature: " + f.getTemperature() + "||||";
                 i++;
             }
-
             return message;
+
         }
 
         // GET api/values/5
-        public Readings Get(int id)
+        public String Get(int id)
         {
-            return readings[id];
+            return readings[id].getTemperature().ToString();
         }
 
         // POST api/values

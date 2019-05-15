@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7018b537d9ad4f1db113d577e641718d" Name="Diagram1">
+      <Diagram DiagramId="20d4a219ab3240b8810317c92db97a07" Name="Diagram1">
         <EntityTypeShape EntityType="ForProjectModel.AllCO2Facts" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ForProjectModel.AllTemperatureFact" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ForProjectModel.Room" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />

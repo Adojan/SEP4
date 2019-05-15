@@ -21,11 +21,9 @@ namespace ReadingAccess
         public Nullable<System.DateTime> Date { get; set; }
     
         public virtual Room Room { get; set; }
-
-        public override String ToString()
+        public override string ToString()
         {
             return CO2Percentage + ",";
         }
-
     }
 }

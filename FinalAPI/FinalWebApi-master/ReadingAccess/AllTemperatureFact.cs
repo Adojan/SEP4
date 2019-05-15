@@ -22,7 +22,7 @@ namespace ReadingAccess
     
         public virtual Room Room { get; set; }
 
-        public String ToString()
+        public override string ToString()
         {
             return Temperature + ",";
         }

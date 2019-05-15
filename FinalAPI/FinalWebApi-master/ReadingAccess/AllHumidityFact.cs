@@ -11,7 +11,7 @@ namespace ReadingAccess
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class AllHumidityFact
     {
         public Nullable<int> RoomId { get; set; }
@@ -19,12 +19,12 @@ namespace ReadingAccess
         public Nullable<decimal> HumidityPercentage { get; set; }
         public Nullable<System.TimeSpan> Time { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
-    
-        public virtual Room Room { get; set; }
 
-        public  String ToString()
+        public virtual Room Room { get; set; }
+        public override string ToString()
         {
             return HumidityPercentage + ",";
         }
+
     }
 }

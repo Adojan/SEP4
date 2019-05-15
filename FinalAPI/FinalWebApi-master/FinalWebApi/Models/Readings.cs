@@ -5,7 +5,7 @@ using System.Web;
 
 namespace FinalWebApi.Models
 {
- 
+
     public class Readings
     {
 
@@ -20,7 +20,7 @@ namespace FinalWebApi.Models
 
         public float getCo2()
         {
-            return  co2;
+            return co2;
         }
 
         public void setHumidity(float humidity)

@@ -27,10 +27,10 @@ namespace ReadingAccess
     
         public virtual DbSet<AllCO2Facts> AllCO2Facts { get; set; }
         public virtual DbSet<AllTemperatureFact> AllTemperatureFacts { get; set; }
-        public virtual DbSet<AllHumidityFact> AllHumidityFacts { get; set; }
         public virtual DbSet<Room> Rooms { get; set; }
         public virtual DbSet<STAGE_AllTemperatureFacts> STAGE_AllTemperatureFacts { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<AllHumidityFact> AllHumidityFacts { get; set; }
         public virtual DbSet<STAGE_AllCO2Facts> STAGE_AllCO2Facts { get; set; }
         public virtual DbSet<STAGE_AllHumidityFacts> STAGE_AllHumidityFacts { get; set; }
     }
