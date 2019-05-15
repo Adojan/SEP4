@@ -1,0 +1,35 @@
+\hypertarget{co2__task_8h}{}\section{co2\+\_\+task.\+h File Reference}
+\label{co2__task_8h}\index{co2\_task.h@{co2\_task.h}}
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+{\ttfamily \#include $<$avr/sfr\+\_\+defs.\+h$>$}\newline
+{\ttfamily \#include $<$A\+T\+M\+E\+G\+A\+\_\+\+Free\+R\+T\+O\+S.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}task.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}semphr.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stdio\+\_\+driver.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}queue.\+h\char`\"{}}\newline
+Include dependency graph for co2\+\_\+task.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{co2__task_8h_a520687a2d93d662dc4e245e35d067004}{co2\+\_\+tsk}} (void $\ast$pv\+Parameters)
+\item 
+void \mbox{\hyperlink{co2__task_8h_ac455a3ff28fc5fa2d5ef6eac41c746c9}{my\+\_\+co2\+\_\+call\+\_\+back}} (uint16\+\_\+t ppm)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{co2__task_8h_a520687a2d93d662dc4e245e35d067004}\label{co2__task_8h_a520687a2d93d662dc4e245e35d067004}} 
+\index{co2\_task.h@{co2\_task.h}!co2\_tsk@{co2\_tsk}}
+\index{co2\_tsk@{co2\_tsk}!co2\_task.h@{co2\_task.h}}
+\subsubsection{\texorpdfstring{co2\_tsk()}{co2\_tsk()}}
+{\footnotesize\ttfamily void co2\+\_\+tsk (\begin{DoxyParamCaption}\item[{void $\ast$}]{pv\+Parameters }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{co2__task_8h_ac455a3ff28fc5fa2d5ef6eac41c746c9}\label{co2__task_8h_ac455a3ff28fc5fa2d5ef6eac41c746c9}} 
+\index{co2\_task.h@{co2\_task.h}!my\_co2\_call\_back@{my\_co2\_call\_back}}
+\index{my\_co2\_call\_back@{my\_co2\_call\_back}!co2\_task.h@{co2\_task.h}}
+\subsubsection{\texorpdfstring{my\_co2\_call\_back()}{my\_co2\_call\_back()}}
+{\footnotesize\ttfamily void my\+\_\+co2\+\_\+call\+\_\+back (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{ppm }\end{DoxyParamCaption})}
+

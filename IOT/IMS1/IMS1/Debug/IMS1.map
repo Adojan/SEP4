@@ -1958,60 +1958,60 @@ END GROUP
  .debug_frame   0x00001f74      0x12c ../Iot driver Library\libIotLibrary.a(twi.o)
  .debug_frame   0x000020a0       0x24 ../Iot driver Library\libIotLibrary.a(fifo.o)
 
-.debug_str      0x00000000     0x3e15
+.debug_str      0x00000000     0x3e56
  *(.debug_str)
  .debug_str     0x00000000      0x3e6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6/crtatmega2560.o
- .debug_str     0x000003e6      0x303 co2_task/co2_task_impl.o
-                                0x353 (size before relaxing)
- .debug_str     0x000006e9       0x70 FreeRTOS/FreeRTOSTraceDriver/FreeRTOSTraceDriver.o
+ .debug_str     0x000003e6      0x313 co2_task/co2_task_impl.o
+                                0x363 (size before relaxing)
+ .debug_str     0x000006f9       0xa1 FreeRTOS/FreeRTOSTraceDriver/FreeRTOSTraceDriver.o
                                 0x1bb (size before relaxing)
- .debug_str     0x00000759       0x94 FreeRTOS/src/heap_3.o
+ .debug_str     0x0000079a       0x94 FreeRTOS/src/heap_3.o
                                 0x1ed (size before relaxing)
- .debug_str     0x000007ed      0x140 FreeRTOS/src/list.o
+ .debug_str     0x0000082e      0x140 FreeRTOS/src/list.o
                                 0x2b8 (size before relaxing)
- .debug_str     0x0000092d      0x11d FreeRTOS/src/port.o
+ .debug_str     0x0000096e      0x11d FreeRTOS/src/port.o
                                 0x2a5 (size before relaxing)
- .debug_str     0x00000a4a      0x6a5 FreeRTOS/src/queue.o
+ .debug_str     0x00000a8b      0x6a5 FreeRTOS/src/queue.o
                                 0x9ae (size before relaxing)
- .debug_str     0x000010ef      0x54a FreeRTOS/src/stream_buffer.o
+ .debug_str     0x00001130      0x54a FreeRTOS/src/stream_buffer.o
                                 0x81d (size before relaxing)
- .debug_str     0x00001639      0xafa FreeRTOS/src/tasks.o
+ .debug_str     0x0000167a      0xafa FreeRTOS/src/tasks.o
                                0x1159 (size before relaxing)
- .debug_str     0x00002133      0x43f FreeRTOS/src/timers.o
+ .debug_str     0x00002174      0x43f FreeRTOS/src/timers.o
                                 0x846 (size before relaxing)
- .debug_str     0x00002572       0x61 FreeRTOS/src/variantHooks.o
+ .debug_str     0x000025b3       0x61 FreeRTOS/src/variantHooks.o
                                 0x24c (size before relaxing)
- .debug_str     0x000025d3       0xe3 hum_task/hum_task_impl.o
-                                0x371 (size before relaxing)
- .debug_str     0x000026b6      0x1d6 init_task/init_hw.o
+ .debug_str     0x00002614       0xe3 hum_task/hum_task_impl.o
+                                0x381 (size before relaxing)
+ .debug_str     0x000026f7      0x1d6 init_task/init_hw.o
                                 0x3ae (size before relaxing)
- .debug_str     0x0000288c      0x2ba lora_task/lora_task_impl.o
-                                0x670 (size before relaxing)
- .debug_str     0x00002b46       0x62 main.o
-                                0x305 (size before relaxing)
- .debug_str     0x00002ba8       0x51 temp_task/temp_task_impl.o
-                                0x37c (size before relaxing)
- .debug_str     0x00002bf9       0xc3 ../Iot driver Library\libIotLibrary.a(hal.o)
+ .debug_str     0x000028cd      0x2ba lora_task/lora_task_impl.o
+                                0x680 (size before relaxing)
+ .debug_str     0x00002b87       0x62 main.o
+                                0x315 (size before relaxing)
+ .debug_str     0x00002be9       0x51 temp_task/temp_task_impl.o
+                                0x38c (size before relaxing)
+ .debug_str     0x00002c3a       0xc3 ../Iot driver Library\libIotLibrary.a(hal.o)
                                 0x284 (size before relaxing)
- .debug_str     0x00002cbc      0x1f5 ../Iot driver Library\libIotLibrary.a(hih8120.o)
+ .debug_str     0x00002cfd      0x1f5 ../Iot driver Library\libIotLibrary.a(hih8120.o)
                                 0x44a (size before relaxing)
- .debug_str     0x00002eb1       0xd1 ../Iot driver Library\libIotLibrary.a(led.o)
+ .debug_str     0x00002ef2       0xd1 ../Iot driver Library\libIotLibrary.a(led.o)
                                 0x3d2 (size before relaxing)
- .debug_str     0x00002f82      0x5f4 ../Iot driver Library\libIotLibrary.a(lora_driver.o)
+ .debug_str     0x00002fc3      0x5f4 ../Iot driver Library\libIotLibrary.a(lora_driver.o)
                                 0xc93 (size before relaxing)
- .debug_str     0x00003576       0x46 ../Iot driver Library\libIotLibrary.a(lora_driver_utils.o)
+ .debug_str     0x000035b7       0x46 ../Iot driver Library\libIotLibrary.a(lora_driver_utils.o)
                                 0x205 (size before relaxing)
- .debug_str     0x000035bc       0xdf ../Iot driver Library\libIotLibrary.a(mega_register_access.o)
+ .debug_str     0x000035fd       0xdf ../Iot driver Library\libIotLibrary.a(mega_register_access.o)
                                 0x252 (size before relaxing)
- .debug_str     0x0000369b       0xfa ../Iot driver Library\libIotLibrary.a(mh_z19.o)
+ .debug_str     0x000036dc       0xfa ../Iot driver Library\libIotLibrary.a(mh_z19.o)
                                 0x47a (size before relaxing)
- .debug_str     0x00003795      0x2de ../Iot driver Library\libIotLibrary.a(serial.o)
+ .debug_str     0x000037d6      0x2de ../Iot driver Library\libIotLibrary.a(serial.o)
                                 0x639 (size before relaxing)
- .debug_str     0x00003a73       0xa4 ../Iot driver Library\libIotLibrary.a(stdio_driver.o)
+ .debug_str     0x00003ab4       0xa4 ../Iot driver Library\libIotLibrary.a(stdio_driver.o)
                                 0x378 (size before relaxing)
- .debug_str     0x00003b17      0x2de ../Iot driver Library\libIotLibrary.a(twi.o)
+ .debug_str     0x00003b58      0x2de ../Iot driver Library\libIotLibrary.a(twi.o)
                                 0x5a8 (size before relaxing)
- .debug_str     0x00003df5       0x20 ../Iot driver Library\libIotLibrary.a(fifo.o)
+ .debug_str     0x00003e36       0x20 ../Iot driver Library\libIotLibrary.a(fifo.o)
                                 0x237 (size before relaxing)
 
 .debug_loc      0x00000000     0xb4b8

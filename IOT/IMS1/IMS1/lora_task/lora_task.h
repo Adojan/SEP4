@@ -21,7 +21,6 @@
 #include "queue.h"
 
 void lora_data_manager_tsk(void *pvParameters);
-//lora_payload_t make_uplink_payload(const uint16_t *values)
 void lora_send_tsk(void *pvParameters);
 
 
