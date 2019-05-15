@@ -62,7 +62,9 @@ public class LoginActivity extends AppCompatActivity {
 
 
         // uses fire base sign in method verification
-        loginViewModel.getmFireBaseModel().getmFIreBaseAuth().signInWithEmailAndPassword(loginViewModel.geStringFromTextView(email), loginViewModel.geStringFromTextView(password)).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        loginViewModel.getmFireBaseModel().getmFIreBaseAuth()
+                .signInWithEmailAndPassword(loginViewModel.geStringFromTextView(email), loginViewModel.geStringFromTextView(password))
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 // if authentication is completed successfully than it will move to the next page

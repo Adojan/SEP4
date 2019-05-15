@@ -60,54 +60,62 @@ public class CreateTechnicianActivity extends AppCompatActivity {
 
     public void registerUser(View view) {
 
-
+        //check empty field
         if (createTechnicianViewModel.checkEmptyTextField(email)) {
             Toast.makeText(this, "Please enter a user name", Toast.LENGTH_SHORT).show();
-            //stops the function from executing further
             return;
         }
+        //check empty field
+
         if (createTechnicianViewModel.checkEmptyTextField(password)) {
             Toast.makeText(this, "Please enter a password", Toast.LENGTH_SHORT).show();
-            //stops the function from executing further
             return;
         }
+        //check empty field
+
         if (createTechnicianViewModel.checkEmptyTextField(reenterPassword)) {
             Toast.makeText(this, "Please re-enter your password", Toast.LENGTH_SHORT).show();
-            //stops the function from executing further
             return;
         }
+        //check password length
         if (createTechnicianViewModel.checkLenght(password.toString())) {
             Toast.makeText(this, "The password must be at least 6 characters long", Toast.LENGTH_SHORT).show();
-            //stops the function from executing further
             return;
         }
-
-        if (createTechnicianViewModel.geStringFromTextView(password).equals(createTechnicianViewModel.geStringFromTextView(reenterPassword))) {
+        //check matching passwords
+        if (createTechnicianViewModel.geStringFromTextView(password)
+                .equals(createTechnicianViewModel.geStringFromTextView(reenterPassword))) {
 
             progressDialog.setMessage("Verifying credentials...");
             progressDialog.show();
 
 
             // this creates a user account with two parameters of email and password on the fire base
-            createTechnicianViewModel.getmFireBaseModel().getmFIreBaseAuth().createUserWithEmailAndPassword(createTechnicianViewModel.geStringFromTextView(email), createTechnicianViewModel.geStringFromTextView(password)).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            createTechnicianViewModel.getmFireBaseModel()
+                    .getmFIreBaseAuth()
+                    .createUserWithEmailAndPassword(createTechnicianViewModel.geStringFromTextView(email)
+                            , createTechnicianViewModel.geStringFromTextView(password))
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @SuppressLint("ByteOrderMark")
                 @Override
                 // this method checks to see if the registration has been successful or not
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
-                        Toast.makeText(CreateTechnicianActivity.this, "Account has been registered", Toast.LENGTH_SHORT).show();
-                        Intent cretaeUsers = new Intent(CreateTechnicianActivity.this, AdminSelectRoomActivity.class);
-                        startActivity(cretaeUsers);
+                        //if account is created also go to specified intent
+                        Toast.makeText(CreateTechnicianActivity.this, "Account has been registered", Toast.LENGTH_SHORT)
+                                .show();
+                        Intent createUsers = new Intent(CreateTechnicianActivity.this, AdminSelectRoomActivity.class);
+                        startActivity(createUsers);
 
                     } else {
-                        Toast.makeText(CreateTechnicianActivity.this, "Unable to create user account", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CreateTechnicianActivity.this, "Unable to create user account", Toast.LENGTH_SHORT)
+                                .show();
                         progressDialog.dismiss();
                     }
                 }
             });
         } else {
             Toast.makeText(this, "Passwords don't match", Toast.LENGTH_SHORT).show();
-            //stops the function from executing further
             return;
         }
     }
