@@ -1,0 +1,67 @@
+\hypertarget{co2__task__impl_8c}{}\section{co2\+\_\+task\+\_\+impl.\+c File Reference}
+\label{co2__task__impl_8c}\index{co2\_task\_impl.c@{co2\_task\_impl.c}}
+{\ttfamily \#include \char`\"{}co2\+\_\+task.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$sensor\+\_\+sample.\+h$>$}\newline
+{\ttfamily \#include $<$mh\+\_\+z19.\+h$>$}\newline
+Include dependency graph for co2\+\_\+task\+\_\+impl.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{co2__task__impl_8c_a520687a2d93d662dc4e245e35d067004}{co2\+\_\+tsk}} (void $\ast$pv\+Parameters)
+\item 
+void \mbox{\hyperlink{co2__task__impl_8c_ac455a3ff28fc5fa2d5ef6eac41c746c9}{my\+\_\+co2\+\_\+call\+\_\+back}} (uint16\+\_\+t ppm)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+Semaphore\+Handle\+\_\+t \mbox{\hyperlink{co2__task__impl_8c_a8d4a59cca578c81852cfef683c9f5370}{semph\+C\+O2}}
+\item 
+Queue\+Handle\+\_\+t \mbox{\hyperlink{co2__task__impl_8c_a0914ebf76cb65458ba812055823e77df}{x\+Payload\+Queue}}
+\item 
+\mbox{\hyperlink{co2__task__impl_8c_a8e98968426a17391854406c68c120db6}{R\+E\+L\+O\+A\+D\+\_\+\+P\+E\+R\+I\+OD}}
+\item 
+mh\+\_\+z19\+\_\+return\+\_\+code\+\_\+t \mbox{\hyperlink{co2__task__impl_8c_aff86731384ab093aa7b223be8eb6f6c0}{rc}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{co2__task__impl_8c_a520687a2d93d662dc4e245e35d067004}\label{co2__task__impl_8c_a520687a2d93d662dc4e245e35d067004}} 
+\index{co2\_task\_impl.c@{co2\_task\_impl.c}!co2\_tsk@{co2\_tsk}}
+\index{co2\_tsk@{co2\_tsk}!co2\_task\_impl.c@{co2\_task\_impl.c}}
+\subsubsection{\texorpdfstring{co2\_tsk()}{co2\_tsk()}}
+{\footnotesize\ttfamily void co2\+\_\+tsk (\begin{DoxyParamCaption}\item[{void $\ast$}]{pv\+Parameters }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{co2__task__impl_8c_ac455a3ff28fc5fa2d5ef6eac41c746c9}\label{co2__task__impl_8c_ac455a3ff28fc5fa2d5ef6eac41c746c9}} 
+\index{co2\_task\_impl.c@{co2\_task\_impl.c}!my\_co2\_call\_back@{my\_co2\_call\_back}}
+\index{my\_co2\_call\_back@{my\_co2\_call\_back}!co2\_task\_impl.c@{co2\_task\_impl.c}}
+\subsubsection{\texorpdfstring{my\_co2\_call\_back()}{my\_co2\_call\_back()}}
+{\footnotesize\ttfamily void my\+\_\+co2\+\_\+call\+\_\+back (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{ppm }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{co2__task__impl_8c_aff86731384ab093aa7b223be8eb6f6c0}\label{co2__task__impl_8c_aff86731384ab093aa7b223be8eb6f6c0}} 
+\index{co2\_task\_impl.c@{co2\_task\_impl.c}!rc@{rc}}
+\index{rc@{rc}!co2\_task\_impl.c@{co2\_task\_impl.c}}
+\subsubsection{\texorpdfstring{rc}{rc}}
+{\footnotesize\ttfamily mh\+\_\+z19\+\_\+return\+\_\+code\+\_\+t rc}
+
+\mbox{\Hypertarget{co2__task__impl_8c_a8e98968426a17391854406c68c120db6}\label{co2__task__impl_8c_a8e98968426a17391854406c68c120db6}} 
+\index{co2\_task\_impl.c@{co2\_task\_impl.c}!RELOAD\_PERIOD@{RELOAD\_PERIOD}}
+\index{RELOAD\_PERIOD@{RELOAD\_PERIOD}!co2\_task\_impl.c@{co2\_task\_impl.c}}
+\subsubsection{\texorpdfstring{RELOAD\_PERIOD}{RELOAD\_PERIOD}}
+{\footnotesize\ttfamily R\+E\+L\+O\+A\+D\+\_\+\+P\+E\+R\+I\+OD}
+
+\mbox{\Hypertarget{co2__task__impl_8c_a8d4a59cca578c81852cfef683c9f5370}\label{co2__task__impl_8c_a8d4a59cca578c81852cfef683c9f5370}} 
+\index{co2\_task\_impl.c@{co2\_task\_impl.c}!semphCO2@{semphCO2}}
+\index{semphCO2@{semphCO2}!co2\_task\_impl.c@{co2\_task\_impl.c}}
+\subsubsection{\texorpdfstring{semphCO2}{semphCO2}}
+{\footnotesize\ttfamily Semaphore\+Handle\+\_\+t semph\+C\+O2}
+
+\mbox{\Hypertarget{co2__task__impl_8c_a0914ebf76cb65458ba812055823e77df}\label{co2__task__impl_8c_a0914ebf76cb65458ba812055823e77df}} 
+\index{co2\_task\_impl.c@{co2\_task\_impl.c}!xPayloadQueue@{xPayloadQueue}}
+\index{xPayloadQueue@{xPayloadQueue}!co2\_task\_impl.c@{co2\_task\_impl.c}}
+\subsubsection{\texorpdfstring{xPayloadQueue}{xPayloadQueue}}
+{\footnotesize\ttfamily Queue\+Handle\+\_\+t x\+Payload\+Queue}
+
