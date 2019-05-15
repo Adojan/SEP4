@@ -1,0 +1,90 @@
+\hypertarget{main_8c}{}\section{main.\+c File Reference}
+\label{main_8c}\index{main.c@{main.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdio\+\_\+driver.\+h$>$}\newline
+{\ttfamily \#include $<$avr/interrupt.\+h$>$}\newline
+{\ttfamily \#include $<$util/delay.\+h$>$}\newline
+{\ttfamily \#include $<$avr/io.\+h$>$}\newline
+{\ttfamily \#include $<$avr/sfr\+\_\+defs.\+h$>$}\newline
+{\ttfamily \#include $<$A\+T\+M\+E\+G\+A\+\_\+\+Free\+R\+T\+O\+S.\+h$>$}\newline
+{\ttfamily \#include $<$semphr.\+h$>$}\newline
+{\ttfamily \#include $<$mh\+\_\+z19.\+h$>$}\newline
+{\ttfamily \#include $<$hih8120.\+h$>$}\newline
+{\ttfamily \#include $<$timers.\+h$>$}\newline
+{\ttfamily \#include $<$task.\+h$>$}\newline
+{\ttfamily \#include $<$temp\+\_\+task.\+h$>$}\newline
+{\ttfamily \#include $<$co2\+\_\+task.\+h$>$}\newline
+{\ttfamily \#include $<$lora\+\_\+task.\+h$>$}\newline
+{\ttfamily \#include $<$sensor\+\_\+sample.\+h$>$}\newline
+{\ttfamily \#include $<$hum\+\_\+task.\+h$>$}\newline
+{\ttfamily \#include $<$init\+\_\+hw.\+h$>$}\newline
+Include dependency graph for main.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const Tick\+Type\+\_\+t \mbox{\hyperlink{main_8c_ae4c667785c700989585ac62106acb194}{R\+E\+L\+O\+A\+D\+\_\+\+P\+E\+R\+I\+OD}} = 4000
+\item 
+Semaphore\+Handle\+\_\+t \mbox{\hyperlink{main_8c_a268efdb6dcbf3cf1bc865e24dbf6f1e7}{semph\+Temp}}
+\item 
+Semaphore\+Handle\+\_\+t \mbox{\hyperlink{main_8c_a8d4a59cca578c81852cfef683c9f5370}{semph\+C\+O2}}
+\item 
+Semaphore\+Handle\+\_\+t \mbox{\hyperlink{main_8c_aaaf1859953d048ab57be7ae8d468a0a0}{semph\+Hum}}
+\item 
+Queue\+Handle\+\_\+t \mbox{\hyperlink{main_8c_a0914ebf76cb65458ba812055823e77df}{x\+Payload\+Queue}}
+\item 
+Queue\+Handle\+\_\+t \mbox{\hyperlink{main_8c_ae562287bc097734bf768dba724d82ce4}{x\+Telegram\+Queue}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{main_8c_a840291bc02cba5474a4cb46a9b9566fe}} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{main_8c_ae4c667785c700989585ac62106acb194}\label{main_8c_ae4c667785c700989585ac62106acb194}} 
+\index{main.c@{main.c}!RELOAD\_PERIOD@{RELOAD\_PERIOD}}
+\index{RELOAD\_PERIOD@{RELOAD\_PERIOD}!main.c@{main.c}}
+\subsubsection{\texorpdfstring{RELOAD\_PERIOD}{RELOAD\_PERIOD}}
+{\footnotesize\ttfamily const Tick\+Type\+\_\+t R\+E\+L\+O\+A\+D\+\_\+\+P\+E\+R\+I\+OD = 4000}
+
+\mbox{\Hypertarget{main_8c_a8d4a59cca578c81852cfef683c9f5370}\label{main_8c_a8d4a59cca578c81852cfef683c9f5370}} 
+\index{main.c@{main.c}!semphCO2@{semphCO2}}
+\index{semphCO2@{semphCO2}!main.c@{main.c}}
+\subsubsection{\texorpdfstring{semphCO2}{semphCO2}}
+{\footnotesize\ttfamily Semaphore\+Handle\+\_\+t semph\+C\+O2}
+
+\mbox{\Hypertarget{main_8c_aaaf1859953d048ab57be7ae8d468a0a0}\label{main_8c_aaaf1859953d048ab57be7ae8d468a0a0}} 
+\index{main.c@{main.c}!semphHum@{semphHum}}
+\index{semphHum@{semphHum}!main.c@{main.c}}
+\subsubsection{\texorpdfstring{semphHum}{semphHum}}
+{\footnotesize\ttfamily Semaphore\+Handle\+\_\+t semph\+Hum}
+
+\mbox{\Hypertarget{main_8c_a268efdb6dcbf3cf1bc865e24dbf6f1e7}\label{main_8c_a268efdb6dcbf3cf1bc865e24dbf6f1e7}} 
+\index{main.c@{main.c}!semphTemp@{semphTemp}}
+\index{semphTemp@{semphTemp}!main.c@{main.c}}
+\subsubsection{\texorpdfstring{semphTemp}{semphTemp}}
+{\footnotesize\ttfamily Semaphore\+Handle\+\_\+t semph\+Temp}
+
+\mbox{\Hypertarget{main_8c_a0914ebf76cb65458ba812055823e77df}\label{main_8c_a0914ebf76cb65458ba812055823e77df}} 
+\index{main.c@{main.c}!xPayloadQueue@{xPayloadQueue}}
+\index{xPayloadQueue@{xPayloadQueue}!main.c@{main.c}}
+\subsubsection{\texorpdfstring{xPayloadQueue}{xPayloadQueue}}
+{\footnotesize\ttfamily Queue\+Handle\+\_\+t x\+Payload\+Queue}
+
+\mbox{\Hypertarget{main_8c_ae562287bc097734bf768dba724d82ce4}\label{main_8c_ae562287bc097734bf768dba724d82ce4}} 
+\index{main.c@{main.c}!xTelegramQueue@{xTelegramQueue}}
+\index{xTelegramQueue@{xTelegramQueue}!main.c@{main.c}}
+\subsubsection{\texorpdfstring{xTelegramQueue}{xTelegramQueue}}
+{\footnotesize\ttfamily Queue\+Handle\+\_\+t x\+Telegram\+Queue}
+
