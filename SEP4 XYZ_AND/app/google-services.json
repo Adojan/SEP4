@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "114890928827",
+    "firebase_url": "https://sep-android-final.firebaseio.com",
+    "project_id": "sep-android-final",
+    "storage_bucket": "sep-android-final.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:114890928827:android:095c3bd48ed4f1aa",
+        "android_client_info": {
+          "package_name": "com.example.SEP_XYZ"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "114890928827-1lq7kpufqvibrjks2mhrc24eh8v2ecc5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.SEP_XYZ",
+            "certificate_hash": "42c841e138f5f079446b5d4766593c0bd517d870"
+          }
+        },
+        {
+          "client_id": "114890928827-kjfn8q5op9hqf1okh9mej7gm4679e8s0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDXvDXNXADqtYaruWy3iIHVwVajafJytM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "114890928827-kjfn8q5op9hqf1okh9mej7gm4679e8s0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

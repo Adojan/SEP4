@@ -1,0 +1,54 @@
+<resources>
+
+    <string-array name="blockIds">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+    </string-array>
+
+    <string-array name="floorNrs">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="roomNrs">
+        <item>01</item>
+        <item>02</item>
+        <item>03</item>
+        <item>04</item>
+        <item>05</item>
+        <item>06</item>
+        <item>07</item>
+    </string-array>
+
+
+    <string name="app_name">SEP4xyz</string>
+    <string name="email">E-mail Address</string>
+    <string name="password">Password</string>
+    <string name="log_in">Login</string>
+    <string name="register">Register</string>
+    <string name="administrator_login">Administrator Login</string>
+    <string name="login_user">User Login</string>
+    <string name="user_registration">User Registration</string>
+    <string name="passwor_reenter">Re-enter Password</string>
+    <string name="existing_account">Already have an account? Sign in!</string>
+    <string name="first_floor">First floor</string>
+    <string name="second_floor">Second floor</string>
+    <string name="third_floor">Third floor</string>
+    <string name="select_room">Select room</string>
+    <string name="find_room">Find room</string>
+    <string name="all_rooms">All rooms</string>
+    <string name="availabe_rooms">Available rooms</string>
+    <string name="CO2">CO2:</string>
+    <string name="Humidity">Humidity:</string>
+    <string name="Temperature">Temperature:</string>
+
+
+</resources>
+
